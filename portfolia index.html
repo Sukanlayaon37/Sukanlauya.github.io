@@ -2,36 +2,248 @@
 <html lang="th">
 <head>
 <meta charset="UTF-8">
-<meta viewport="width=device-width, initial-scale=1.0">
-<title>แฟมสะสมงานของฉัน </title>
-   <img src="sukanlaya/my-profile.jpg.jpg" alt="รูปโปรไฟล์ของฉัน" width="200">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>แฟ้มสะสมผลงาน | Portfolio</title>
 <style>
-body { font-family: sans-serif; background-color: #AFD5F0; text-align: center;
-padding: 30px; }
-.container { max-width: 800px; margin: 0 auto; }
-.project-card { background: white; padding: 20px; margin: 20px 0; border-radius:
-8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); text-align: left; }
-.btn { display: inline-block; background: #2c3e50; color: white; padding: 10px
-20px; text-decoration: none; border-radius: 5px; margin-top: 20px; }
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:Arial,"Noto Sans Thai",sans-serif;background:#f5f5f5;color:#222}
+button{font-family:inherit;cursor:pointer}
+.page{display:none;min-height:100vh}
+.page.active{display:block}
+
+/* HOME */
+#home{align-items:center;justify-content:center;text-align:center;padding:30px;background:radial-gradient(circle at top left,#fff,transparent 35%),linear-gradient(135deg,#eee,#fff,#ddd)}
+#home.active{display:flex}
+.home-content{max-width:1000px}
+.school{font-size:20px;letter-spacing:2px;color:#555;margin-bottom:30px}
+.home-title{font-size:clamp(55px,9vw,120px);font-weight:800;letter-spacing:4px;line-height:1.1}
+.subtitle{font-size:18px;letter-spacing:8px;color:#777;margin-top:20px}
+.line{width:80px;height:3px;background:#222;margin:30px auto}
+.btn{display:inline-flex;align-items:center;gap:18px;padding:15px 28px;border:0;border-radius:50px;background:#222;color:#fff;font-size:16px;transition:.3s}
+.btn:hover{background:#555;transform:translateY(-3px)}
+.btn span{font-size:22px}
+
+/* NAV */
+nav{height:75px;padding:0 7%;display:flex;justify-content:space-between;align-items:center;background:#fff;border-bottom:1px solid #ddd;position:sticky;top:0;z-index:10}
+.logo{font-weight:bold;letter-spacing:3px}
+.links{display:flex;gap:30px}
+.links button{border:0;background:none;color:#777;font-size:15px}
+.links button:hover,.links .selected{color:#111;font-weight:bold}
+
+/* CONTENT */
+.content{max-width:1100px;margin:auto;padding:70px 25px}
+.header{text-align:center;margin-bottom:55px}
+.header small{letter-spacing:4px;color:#888}
+.header h1{font-size:60px;margin:10px 0}
+.header .line{margin:20px auto}
+.header p{color:#777}
+
+/* ABOUT */
+.about-grid{display:grid;grid-template-columns:350px 1fr;gap:50px;align-items:start}
+.profile{height:450px;border-radius:20px;background:linear-gradient(135deg,#ddd,#fff,#ccc);display:flex;align-items:center;justify-content:center;color:#888;letter-spacing:4px;border:1px solid #ddd}
+.info{display:flex;flex-direction:column;gap:18px}
+.card{background:#fff;padding:25px 30px;border-radius:15px;border:1px solid #e2e2e2;transition:.3s}
+.card:hover{transform:translateX(5px);box-shadow:0 10px 30px #00000012}
+.card h2{font-size:20px;margin-bottom:10px}
+.card p{color:#777;line-height:1.8}
+
+/* CERTIFICATES */
+.certificates{display:flex;flex-direction:column;gap:45px}
+.certificate{background:#fff;border-radius:20px;overflow:hidden;border:1px solid #ddd;box-shadow:0 8px 30px #00000010}
+.certificate img{display:block;width:100%;max-height:700px;object-fit:contain;background:#eee}
+.cert-info{padding:25px 30px}
+.cert-info small{color:#999;letter-spacing:3px}
+.cert-info h2{margin:8px 0;font-size:23px}
+.cert-info p{color:#777}
+.back{text-align:center;margin-top:55px}
+footer{text-align:center;padding:35px;background:#222;color:#aaa;font-size:13px}
+
+/* MOBILE */
+@media(max-width:750px){
+nav{padding:0 15px}
+.logo{display:none}
+.links{gap:10px;width:100%;justify-content:center}
+.links button{font-size:12px}
+.home-title{font-size:52px}
+.school{font-size:15px;line-height:1.7}
+.about-grid{grid-template-columns:1fr}
+.profile{height:350px}
+.header h1{font-size:42px}
+}
 </style>
 </head>
+
 <body>
-<div class="container">
-<h1> แฟมสะสมงาน (Portfolio)</h1>
-<p>นี่คือพื้นที่รวบรวมผลงานและกิจกรรมที่ภูมิใจครับ</p>
-<!-- กล่องผลงานชนที่ 1 -->
-<div class="project-card">
-<h3>1. โครงงาน/ชนงานวิทยาศาสตร์คำนวณ </h3>
-<p>รายละเอียดชนงาน : เขียนอธิบายสั้นๆ ว่าทำอะไร ได้เรียนรู้อะไรจากงานนี้บ้าง </p>
+
+<!-- HOME -->
+<section id="home" class="page active">
+<div class="home-content">
+<p class="school">โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"</p>
+<h1 class="home-title">แฟ้มสะสมผลงาน</h1>
+<p class="subtitle">PORTFOLIO</p>
+<div class="line"></div>
+<button class="btn" onclick="showPage('about')">
+เข้าสู่แฟ้มสะสมผลงาน <span>→</span>
+</button>
 </div>
-<!-- กล่องผลงานชนที่ 2 -->
-<div class="project-card">
-<h3>2. กิจกรรม/เกียรติบัตรที่ได้รับ</h3>
-<p>รายละเอียดชนงาน : เข้าร่วมการประกวด หรือกิจกรรมของโรงเรียน...</p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="page">
+
+<nav>
+<div class="logo">PORTFOLIO</div>
+<div class="links">
+<button onclick="showPage('home')">Home</button>
+<button class="selected" onclick="showPage('about')">About Me</button>
+<button onclick="showPage('portfolio')">Portfolio</button>
 </div>
-<!-- ปุ่มกดกลับหน้าแรก -->
-<a href="index.html" class="btn"> กลับหน้าแรก</a>
-   <a href="portfolio.html" style="display:inline-block; background:#3498db; color:white; padding:10px 20px; text-decoration:none; border-radius:5px; margin-top:15px;">👉 ดูแฟ้มสะสมงานของผม</a>
+</nav>
+
+<div class="content">
+<div class="header">
+<small>INTRODUCTION</small>
+<h1>About Me</h1>
+<div class="line"></div>
 </div>
+
+<div class="about-grid">
+
+<div class="profile">
+<span>PHOTO</span>
+</div>
+
+<div class="info">
+
+<div class="card">
+<h2>ข้อมูลส่วนตัว</h2>
+<p>...</p>
+</div>
+
+<div class="card">
+<h2>ประวัติการศึกษา</h2>
+<p>...</p>
+</div>
+
+<div class="card">
+<h2>ความสามารถ</h2>
+<p>...</p>
+</div>
+
+<div class="card">
+<h2>งานอดิเรกและความสนใจ</h2>
+<p>...</p>
+</div>
+
+<div class="card">
+<h2>เป้าหมายในอนาคต</h2>
+<p>...</p>
+</div>
+
+</div>
+</div>
+
+<div class="back">
+<button class="btn" onclick="showPage('portfolio')">
+ดูแฟ้มสะสมผลงาน <span>→</span>
+</button>
+</div>
+
+</div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="page">
+
+<nav>
+<div class="logo">PORTFOLIO</div>
+<div class="links">
+<button onclick="showPage('home')">Home</button>
+<button onclick="showPage('about')">About Me</button>
+<button class="selected" onclick="showPage('portfolio')">Portfolio</button>
+</div>
+</nav>
+
+<div class="content">
+
+<div class="header">
+<small>MY ACHIEVEMENTS</small>
+<h1>เกียรติบัตร</h1>
+<div class="line"></div>
+<p>รวบรวมเกียรติบัตรและผลงานที่ได้รับจากกิจกรรมต่าง ๆ</p>
+</div>
+
+<div class="certificates">
+
+<div class="certificate">
+<img src="images/certificate1.jpg" alt="เกียรติบัตรใบที่ 1">
+<div class="cert-info">
+<small>01</small>
+<h2>เกียรติบัตรใบที่ 1</h2>
+<p>...</p>
+</div>
+</div>
+
+<div class="certificate">
+<img src="images/certificate2.jpg" alt="เกียรติบัตรใบที่ 2">
+<div class="cert-info">
+<small>02</small>
+<h2>เกียรติบัตรใบที่ 2</h2>
+<p>...</p>
+</div>
+</div>
+
+<div class="certificate">
+<img src="images/certificate3.jpg" alt="เกียรติบัตรใบที่ 3">
+<div class="cert-info">
+<small>03</small>
+<h2>เกียรติบัตรใบที่ 3</h2>
+<p>...</p>
+</div>
+</div>
+
+<div class="certificate">
+<img src="images/certificate4.jpg" alt="เกียรติบัตรใบที่ 4">
+<div class="cert-info">
+<small>04</small>
+<h2>เกียรติบัตรใบที่ 4</h2>
+<p>...</p>
+</div>
+</div>
+
+<div class="certificate">
+<img src="images/certificate5.jpg" alt="เกียรติบัตรใบที่ 5">
+<div class="cert-info">
+<small>05</small>
+<h2>เกียรติบัตรใบที่ 5</h2>
+<p>...</p>
+</div>
+</div>
+
+</div>
+
+<div class="back">
+<button class="btn" onclick="showPage('about')">
+← กลับไป About Me
+</button>
+</div>
+
+</div>
+
+<footer>
+© 2026 Portfolio | โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"
+</footer>
+
+</section>
+
+<script>
+function showPage(page){
+document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+document.getElementById(page).classList.add('active');
+window.scrollTo({top:0,behavior:'smooth'});
+}
+</script>
+
 </body>
 </html>
