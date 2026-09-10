@@ -26,6 +26,7 @@ background:#f5f5f5;
 color:#222
 }
 
+
 /* NAV */
 
 nav{
@@ -64,6 +65,7 @@ color:#111;
 font-weight:bold
 }
 
+
 /* CONTENT */
 
 .content{
@@ -99,6 +101,7 @@ color:#777;
 line-height:1.8
 }
 
+
 /* TAB */
 
 .tabs{
@@ -125,19 +128,19 @@ transition:.3s
 color:#222
 }
 
-/* HIDE RADIO */
+
+/* RADIO */
 
 .tab-radio{
 display:none
 }
-
-/* DEFAULT TAB */
 
 #normal:checked ~ .tabs label[for="normal"],
 #digital:checked ~ .tabs label[for="digital"]{
 background:#222;
 color:#fff
 }
+
 
 /* GALLERY */
 
@@ -154,6 +157,7 @@ display:grid
 #digital:checked ~ .digital-gallery{
 display:grid
 }
+
 
 /* ART CARD */
 
@@ -193,11 +197,16 @@ font-size:18px;
 margin-top:7px
 }
 
-/* BACK BUTTON */
+
+/* BUTTON */
 
 .back{
 text-align:center;
-margin-top:55px
+margin-top:55px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap
 }
 
 .btn{
@@ -218,6 +227,7 @@ background:#555;
 transform:translateY(-3px)
 }
 
+
 /* FOOTER */
 
 footer{
@@ -227,6 +237,7 @@ background:#222;
 color:#aaa;
 font-size:13px
 }
+
 
 /* MOBILE */
 
@@ -241,13 +252,13 @@ display:none
 }
 
 .links{
-gap:15px;
+gap:12px;
 width:100%;
 justify-content:center
 }
 
 .links a{
-font-size:12px
+font-size:11px
 }
 
 .header h1{
@@ -277,6 +288,7 @@ object-fit:contain
 </head>
 
 <body>
+
 
 <nav>
 
@@ -309,6 +321,7 @@ Portfolio
 
 <div class="content">
 
+
 <div class="header">
 
 <small>
@@ -330,12 +343,23 @@ MY ARTWORK
 
 <!-- RADIO -->
 
-<input type="radio" name="art-tab" id="normal" class="tab-radio" checked>
+<input
+type="radio"
+name="art-tab"
+id="normal"
+class="tab-radio"
+checked
+>
 
-<input type="radio" name="art-tab" id="digital" class="tab-radio">
+<input
+type="radio"
+name="art-tab"
+id="digital"
+class="tab-radio"
+>
 
 
-<!-- TAB BUTTON -->
+<!-- TAB -->
 
 <div class="tabs">
 
@@ -357,7 +381,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/K8JX2xbj/att-Xzi7VSjm-Ie-B3To-ZUFe-Xfyu-T6EC5Nwo-Eic-Li-D5-q2YGQ.jpg" alt="ผลงานวาด 01">
+<img
+src="https://i.postimg.cc/K8JX2xbj/att-Xzi7VSjm-Ie-B3To-ZUFe-Xfyu-T6EC5Nwo-Eic-Li-D5-q2YGQ.jpg"
+alt="ผลงานวาด 01"
+>
 
 <div class="art-info">
 <small>01</small>
@@ -369,7 +396,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/4yCq536h/att-gn-XS9djq-Vh8Bwpf-0Oc7GTHWLNFWsv-Na-UQw7ZIg7gfo.jpg" alt="ผลงานวาด 02">
+<img
+src="https://i.postimg.cc/4yCq536h/att-gn-XS9djq-Vh8Bwpf-0Oc7GTHWLNFWsv-Na-UQw7ZIg7gfo.jpg"
+alt="ผลงานวาด 02"
+>
 
 <div class="art-info">
 <small>02</small>
@@ -381,7 +411,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/kgMZwzby/IMG-0911.jpg" alt="ผลงานวาด 03">
+<img
+src="https://i.postimg.cc/kgMZwzby/IMG-0911.jpg"
+alt="ผลงานวาด 03"
+>
 
 <div class="art-info">
 <small>03</small>
@@ -393,7 +426,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/2j4KYrdh/IMG-0909.jpg" alt="ผลงานวาด 04">
+<img
+src="https://i.postimg.cc/2j4KYrdh/IMG-0909.jpg"
+alt="ผลงานวาด 04"
+>
 
 <div class="art-info">
 <small>04</small>
@@ -405,7 +441,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/QdW5Lx15/IMG-0913.jpg" alt="ผลงานวาด 05">
+<img
+src="https://i.postimg.cc/QdW5Lx15/IMG-0913.jpg"
+alt="ผลงานวาด 05"
+>
 
 <div class="art-info">
 <small>05</small>
@@ -417,7 +456,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/HxT77wKL/att-w-r0y-Qe7So-Gl9i-FTFDQLJj778q-T8q-Xzk-BHVphtsi-Em-I.jpg" alt="ผลงานวาด 06">
+<img
+src="https://i.postimg.cc/HxT77wKL/att-w-r0y-Qe7So-Gl9i-FTFDQLJj778q-T8q-Xzk-BHVphtsi-Em-I.jpg"
+alt="ผลงานวาด 06"
+>
 
 <div class="art-info">
 <small>06</small>
@@ -429,7 +471,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/4yd7WJXy/att-So-XGTSMPq-HMPozem1RGSZs-AFmm8YTUpnxc-Jmmh-HCLI.jpg" alt="ผลงานวาด 07">
+<img
+src="https://i.postimg.cc/4yd7WJXy/att-So-XGTSMPq-HMPozem1RGSZs-AFmm8YTUpnxc-Jmmh-HCLI.jpg"
+alt="ผลงานวาด 07"
+>
 
 <div class="art-info">
 <small>07</small>
@@ -441,7 +486,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/Kz94kdB5/att-1uw4TFYNIw9KBR7b-IUa-zs-UBn-JUj1Ia6Qr-Yq-F2fvox-M.jpg" alt="ผลงานวาด 08">
+<img
+src="https://i.postimg.cc/Kz94kdB5/att-1uw4TFYNIw9KBR7b-IUa-zs-UBn-JUj1Ia6Qr-Yq-F2fvox-M.jpg"
+alt="ผลงานวาด 08"
+>
 
 <div class="art-info">
 <small>08</small>
@@ -461,7 +509,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/9XnrWHWy/IMG-0923.jpg" alt="Digital Art 01">
+<img
+src="https://i.postimg.cc/9XnrWHWy/IMG-0923.jpg"
+alt="Digital Art 01"
+>
 
 <div class="art-info">
 <small>DIGITAL 01</small>
@@ -473,7 +524,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/Bv4vhqCg/IMG-0905.jpg" alt="Digital Art 02">
+<img
+src="https://i.postimg.cc/Bv4vhqCg/IMG-0905.jpg"
+alt="Digital Art 02"
+>
 
 <div class="art-info">
 <small>DIGITAL 02</small>
@@ -485,7 +539,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/D09v1FZB/mi-m-ch-x-23-20260910234256.jpg" alt="Digital Art 03">
+<img
+src="https://i.postimg.cc/D09v1FZB/mi-m-ch-x-23-20260910234256.jpg"
+alt="Digital Art 03"
+>
 
 <div class="art-info">
 <small>DIGITAL 03</small>
@@ -497,7 +554,10 @@ Digital Art
 
 <div class="art-card">
 
-<img src="https://i.postimg.cc/8PLJwnSM/mi-m-ch-x-11-20260801100949.png" alt="Digital Art 04">
+<img
+src="https://i.postimg.cc/8PLJwnSM/mi-m-ch-x-11-20260801100949.png"
+alt="Digital Art 04"
+>
 
 <div class="art-info">
 <small>DIGITAL 04</small>
@@ -509,6 +569,8 @@ Digital Art
 
 </div>
 
+
+<!-- NAVIGATION BUTTONS -->
 
 <div class="back">
 
@@ -522,6 +584,7 @@ Digital Art
 
 </div>
 
+
 </div>
 
 
@@ -530,6 +593,7 @@ Digital Art
 © 2026 Portfolio | โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"
 
 </footer>
+
 
 </body>
 
