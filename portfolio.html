@@ -26,6 +26,10 @@ background:#f5f5f5;
 color:#222
 }
 
+/* =========================
+NAV
+========================= */
+
 nav{
 height:75px;
 padding:0 7%;
@@ -62,6 +66,10 @@ color:#111;
 font-weight:bold
 }
 
+/* =========================
+CONTENT
+========================= */
+
 .content{
 max-width:1100px;
 margin:auto;
@@ -95,9 +103,8 @@ color:#777;
 line-height:1.8
 }
 
-
 /* =========================
-   SECTION
+SECTION
 ========================= */
 
 .section{
@@ -126,9 +133,8 @@ background:#222;
 margin:15px auto
 }
 
-
 /* =========================
-   CERTIFICATES
+CERTIFICATES
 ========================= */
 
 .certificates{
@@ -145,18 +151,29 @@ border:1px solid #ddd;
 box-shadow:0 8px 30px #00000010
 }
 
-.certificate img{
+/* กรอบเกียรติบัตร */
+
+.certificate-image{
+width:100%;
+height:700px;
+background:#eee;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+cursor:zoom-in
+}
+
+.certificate-image img{
 display:block;
 width:100%;
-max-height:700px;
+height:100%;
 object-fit:contain;
-background:#eee;
-cursor:pointer;
 transition:.3s
 }
 
-.certificate img:hover{
-opacity:.9
+.certificate-image:hover img{
+transform:scale(1.015)
 }
 
 .cert-info{
@@ -173,9 +190,8 @@ margin:8px 0 10px;
 font-size:23px
 }
 
-
 /* =========================
-   ACTIVITY GRID
+ACTIVITY GRID
 ========================= */
 
 .activities{
@@ -198,17 +214,29 @@ transform:translateY(-5px);
 box-shadow:0 15px 35px #00000015
 }
 
-.activity img{
-display:block;
+/* กรอบรูปกิจกรรม */
+
+.activity-image{
 width:100%;
 height:280px;
-object-fit:cover;
-cursor:pointer;
+background:#eee;
+display:flex;
+align-items:center;
+justify-content:center;
+overflow:hidden;
+cursor:zoom-in
+}
+
+.activity-image img{
+display:block;
+width:100%;
+height:100%;
+object-fit:contain;
 transition:.3s
 }
 
-.activity img:hover{
-opacity:.9
+.activity-image:hover img{
+transform:scale(1.02)
 }
 
 .activity-info{
@@ -225,9 +253,8 @@ font-size:17px;
 margin-top:5px
 }
 
-
 /* =========================
-   IMAGE LIGHTBOX
+IMAGE LIGHTBOX
 ========================= */
 
 .zoom{
@@ -238,11 +265,15 @@ display:none
 display:none;
 position:fixed;
 inset:0;
-background:#000000e8;
-z-index:999;
+z-index:9999;
+
+background:rgba(0,0,0,.92);
+
 align-items:center;
 justify-content:center;
+
 padding:30px;
+
 cursor:pointer
 }
 
@@ -250,30 +281,69 @@ cursor:pointer
 display:flex
 }
 
+/* รูปใหญ่ */
+
 .zoom-overlay img{
-max-width:95vw;
-max-height:90vh;
+display:block;
+
+max-width:92vw;
+max-height:88vh;
+
 width:auto;
 height:auto;
+
 object-fit:contain;
+
 border-radius:10px;
-box-shadow:0 20px 70px #000
+
+box-shadow:0 20px 70px rgba(0,0,0,.7);
+
+cursor:default
 }
+
+/* =========================
+CLOSE BUTTON
+========================= */
 
 .close{
 position:absolute;
-top:20px;
-right:30px;
-font-size:45px;
+
+top:18px;
+right:25px;
+
+width:52px;
+height:52px;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:50%;
+
+background:rgba(255,255,255,.15);
+
+border:1px solid rgba(255,255,255,.4);
+
 color:#fff;
-font-weight:bold;
+
+font-size:38px;
+font-weight:300;
+
 line-height:1;
-cursor:pointer
+
+cursor:pointer;
+
+transition:.3s
 }
 
+.close:hover{
+background:#fff;
+color:#222;
+transform:rotate(90deg)
+}
 
 /* =========================
-   BUTTON
+BUTTON
 ========================= */
 
 .back{
@@ -303,9 +373,8 @@ background:#555;
 transform:translateY(-3px)
 }
 
-
 /* =========================
-   FOOTER
+FOOTER
 ========================= */
 
 footer{
@@ -316,9 +385,8 @@ color:#aaa;
 font-size:13px
 }
 
-
 /* =========================
-   MOBILE
+MOBILE
 ========================= */
 
 @media(max-width:750px){
@@ -353,18 +421,35 @@ font-size:42px
 font-size:29px
 }
 
-.certificate img{
-max-height:none;
-width:100%
+/* เกียรติบัตรมือถือ */
+
+.certificate-image{
+height:auto;
+min-height:250px
 }
+
+.certificate-image img{
+width:100%;
+height:auto;
+max-height:none;
+object-fit:contain
+}
+
+/* กิจกรรมมือถือ */
 
 .activities{
 grid-template-columns:1fr 1fr;
 gap:14px
 }
 
-.activity img{
+.activity-image{
 height:220px
+}
+
+.activity-image img{
+width:100%;
+height:100%;
+object-fit:contain
 }
 
 .activity-info{
@@ -375,19 +460,23 @@ padding:12px
 font-size:14px
 }
 
+/* รูปขยาย */
+
 .zoom-overlay{
 padding:15px
 }
 
 .zoom-overlay img{
-max-width:96vw;
-max-height:85vh
+max-width:94vw;
+max-height:84vh
 }
 
 .close{
-top:10px;
-right:18px;
-font-size:38px
+top:12px;
+right:15px;
+width:45px;
+height:45px;
+font-size:32px
 }
 
 }
@@ -398,8 +487,8 @@ font-size:38px
 grid-template-columns:1fr
 }
 
-.activity img{
-height:280px
+.activity-image{
+height:300px
 }
 
 }
@@ -412,7 +501,7 @@ height:280px
 
 
 <!-- =========================
-     NAVIGATION
+NAVIGATION
 ========================= -->
 
 <nav>
@@ -448,7 +537,7 @@ Portfolio
 
 
 <!-- =========================
-     HEADER
+HEADER
 ========================= -->
 
 <div class="header">
@@ -471,7 +560,7 @@ Portfolio
 
 
 <!-- ==================================================
-     SECTION 1 : CERTIFICATES
+SECTION 1 : CERTIFICATES
 ================================================== -->
 
 <div class="section">
@@ -494,11 +583,13 @@ MY ACHIEVEMENTS
 <div class="certificates">
 
 
-<!-- เกียรติบัตร 1 -->
+<!-- CERTIFICATE 1 -->
 
 <div class="certificate">
 
-<label for="cert1">
+<input type="checkbox" id="cert1" class="zoom">
+
+<label for="cert1" class="certificate-image">
 
 <img
 src="https://i.postimg.cc/wMKh309Z/IMG-0856.jpg"
@@ -507,15 +598,13 @@ alt="เกียรติบัตรใบที่ 1"
 
 </label>
 
-<input type="checkbox" id="cert1" class="zoom">
-
 <label for="cert1" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/wMKh309Z/IMG-0856.jpg"
-alt="เกียรติบัตรใบที่ 1"
+alt="เกียรติบัตรใบที่ 1 ขนาดใหญ่"
 >
 
 </label>
@@ -533,11 +622,13 @@ alt="เกียรติบัตรใบที่ 1"
 </div>
 
 
-<!-- เกียรติบัตร 2 -->
+<!-- CERTIFICATE 2 -->
 
 <div class="certificate">
 
-<label for="cert2">
+<input type="checkbox" id="cert2" class="zoom">
+
+<label for="cert2" class="certificate-image">
 
 <img
 src="https://i.postimg.cc/SQ86HFrL/IMG-0859.jpg"
@@ -546,15 +637,13 @@ alt="เกียรติบัตรใบที่ 2"
 
 </label>
 
-<input type="checkbox" id="cert2" class="zoom">
-
 <label for="cert2" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/SQ86HFrL/IMG-0859.jpg"
-alt="เกียรติบัตรใบที่ 2"
+alt="เกียรติบัตรใบที่ 2 ขนาดใหญ่"
 >
 
 </label>
@@ -572,11 +661,13 @@ alt="เกียรติบัตรใบที่ 2"
 </div>
 
 
-<!-- เกียรติบัตร 3 -->
+<!-- CERTIFICATE 3 -->
 
 <div class="certificate">
 
-<label for="cert3">
+<input type="checkbox" id="cert3" class="zoom">
+
+<label for="cert3" class="certificate-image">
 
 <img
 src="https://i.postimg.cc/wjxDttdh/IMG-0860.jpg"
@@ -585,15 +676,13 @@ alt="เกียรติบัตรใบที่ 3"
 
 </label>
 
-<input type="checkbox" id="cert3" class="zoom">
-
 <label for="cert3" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/wjxDttdh/IMG-0860.jpg"
-alt="เกียรติบัตรใบที่ 3"
+alt="เกียรติบัตรใบที่ 3 ขนาดใหญ่"
 >
 
 </label>
@@ -611,11 +700,13 @@ alt="เกียรติบัตรใบที่ 3"
 </div>
 
 
-<!-- เกียรติบัตร 4 -->
+<!-- CERTIFICATE 4 -->
 
 <div class="certificate">
 
-<label for="cert4">
+<input type="checkbox" id="cert4" class="zoom">
+
+<label for="cert4" class="certificate-image">
 
 <img
 src="https://i.postimg.cc/5t6v3ZyY/IMG-0861.jpg"
@@ -624,15 +715,13 @@ alt="เกียรติบัตรใบที่ 4"
 
 </label>
 
-<input type="checkbox" id="cert4" class="zoom">
-
 <label for="cert4" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/5t6v3ZyY/IMG-0861.jpg"
-alt="เกียรติบัตรใบที่ 4"
+alt="เกียรติบัตรใบที่ 4 ขนาดใหญ่"
 >
 
 </label>
@@ -650,11 +739,13 @@ alt="เกียรติบัตรใบที่ 4"
 </div>
 
 
-<!-- เกียรติบัตร 5 -->
+<!-- CERTIFICATE 5 -->
 
 <div class="certificate">
 
-<label for="cert5">
+<input type="checkbox" id="cert5" class="zoom">
+
+<label for="cert5" class="certificate-image">
 
 <img
 src="https://i.postimg.cc/h49mp8Dh/IMG-0858.jpg"
@@ -663,15 +754,13 @@ alt="เกียรติบัตรใบที่ 5"
 
 </label>
 
-<input type="checkbox" id="cert5" class="zoom">
-
 <label for="cert5" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/h49mp8Dh/IMG-0858.jpg"
-alt="เกียรติบัตรใบที่ 5"
+alt="เกียรติบัตรใบที่ 5 ขนาดใหญ่"
 >
 
 </label>
@@ -689,11 +778,13 @@ alt="เกียรติบัตรใบที่ 5"
 </div>
 
 
-<!-- เกียรติบัตร 6 -->
+<!-- CERTIFICATE 6 -->
 
 <div class="certificate">
 
-<label for="cert6">
+<input type="checkbox" id="cert6" class="zoom">
+
+<label for="cert6" class="certificate-image">
 
 <img
 src="https://i.postimg.cc/BQ6dsRhq/IMG-0907.jpg"
@@ -702,15 +793,13 @@ alt="เกียรติบัตรใบที่ 6"
 
 </label>
 
-<input type="checkbox" id="cert6" class="zoom">
-
 <label for="cert6" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/BQ6dsRhq/IMG-0907.jpg"
-alt="เกียรติบัตรใบที่ 6"
+alt="เกียรติบัตรใบที่ 6 ขนาดใหญ่"
 >
 
 </label>
@@ -728,11 +817,13 @@ alt="เกียรติบัตรใบที่ 6"
 </div>
 
 
-<!-- เกียรติบัตร 7 -->
+<!-- CERTIFICATE 7 -->
 
 <div class="certificate">
 
-<label for="cert7">
+<input type="checkbox" id="cert7" class="zoom">
+
+<label for="cert7" class="certificate-image">
 
 <img
 src="https://i.postimg.cc/VNjhDwNq/IMG-0908.jpg"
@@ -741,15 +832,13 @@ alt="เกียรติบัตรใบที่ 7"
 
 </label>
 
-<input type="checkbox" id="cert7" class="zoom">
-
 <label for="cert7" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/VNjhDwNq/IMG-0908.jpg"
-alt="เกียรติบัตรใบที่ 7"
+alt="เกียรติบัตรใบที่ 7 ขนาดใหญ่"
 >
 
 </label>
@@ -773,7 +862,7 @@ alt="เกียรติบัตรใบที่ 7"
 
 
 <!-- ==================================================
-     SECTION 2 : ACTIVITIES
+SECTION 2 : ACTIVITIES
 ================================================== -->
 
 <div class="section">
@@ -796,11 +885,13 @@ MY ACTIVITIES
 <div class="activities">
 
 
-<!-- กิจกรรม 1 -->
+<!-- ACTIVITY 1 -->
 
 <div class="activity">
 
-<label for="act1">
+<input type="checkbox" id="act1" class="zoom">
+
+<label for="act1" class="activity-image">
 
 <img
 src="https://i.postimg.cc/KY71F0fT/att-kzo-Rh-Iv7c-O7Otetbb-DJP6orcfj-Bw-Yb-Yr2CTh-OE2Nus.jpg"
@@ -809,15 +900,13 @@ alt="กิจกรรม 1"
 
 </label>
 
-<input type="checkbox" id="act1" class="zoom">
-
 <label for="act1" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/KY71F0fT/att-kzo-Rh-Iv7c-O7Otetbb-DJP6orcfj-Bw-Yb-Yr2CTh-OE2Nus.jpg"
-alt="กิจกรรม 1"
+alt="กิจกรรม 1 ขนาดใหญ่"
 >
 
 </label>
@@ -826,18 +915,22 @@ alt="กิจกรรม 1"
 
 <small>ACTIVITY 01</small>
 
-<h3>กิจกรรมที่ 1</h3>
+<h3>
+กิจกรรมที่ 1
+</h3>
 
 </div>
 
 </div>
 
 
-<!-- กิจกรรม 2 -->
+<!-- ACTIVITY 2 -->
 
 <div class="activity">
 
-<label for="act2">
+<input type="checkbox" id="act2" class="zoom">
+
+<label for="act2" class="activity-image">
 
 <img
 src="https://i.postimg.cc/NFnMbSGQ/att-yy-Vcx-O8Rk-USkxkf-MGfg-VI9sij-ADxcq-XXz-Lcxbpg-TMYY.jpg"
@@ -846,15 +939,13 @@ alt="กิจกรรม 2"
 
 </label>
 
-<input type="checkbox" id="act2" class="zoom">
-
 <label for="act2" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/NFnMbSGQ/att-yy-Vcx-O8Rk-USkxkf-MGfg-VI9sij-ADxcq-XXz-Lcxbpg-TMYY.jpg"
-alt="กิจกรรม 2"
+alt="กิจกรรม 2 ขนาดใหญ่"
 >
 
 </label>
@@ -863,18 +954,22 @@ alt="กิจกรรม 2"
 
 <small>ACTIVITY 02</small>
 
-<h3>กิจกรรมที่ 2</h3>
+<h3>
+กิจกรรมที่ 2
+</h3>
 
 </div>
 
 </div>
 
 
-<!-- กิจกรรม 3 -->
+<!-- ACTIVITY 3 -->
 
 <div class="activity">
 
-<label for="act3">
+<input type="checkbox" id="act3" class="zoom">
+
+<label for="act3" class="activity-image">
 
 <img
 src="https://i.postimg.cc/7Yph2FQY/att-Sd-Tb-Rb-J4K9YDSMHAn-Bi1l-MWUafxot-ZCH51Qh3U8WPfs.jpg"
@@ -883,15 +978,13 @@ alt="กิจกรรม 3"
 
 </label>
 
-<input type="checkbox" id="act3" class="zoom">
-
 <label for="act3" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/7Yph2FQY/att-Sd-Tb-Rb-J4K9YDSMHAn-Bi1l-MWUafxot-ZCH51Qh3U8WPfs.jpg"
-alt="กิจกรรม 3"
+alt="กิจกรรม 3 ขนาดใหญ่"
 >
 
 </label>
@@ -900,18 +993,22 @@ alt="กิจกรรม 3"
 
 <small>ACTIVITY 03</small>
 
-<h3>กิจกรรมที่ 3</h3>
+<h3>
+กิจกรรมที่ 3
+</h3>
 
 </div>
 
 </div>
 
 
-<!-- กิจกรรม 4 -->
+<!-- ACTIVITY 4 -->
 
 <div class="activity">
 
-<label for="act4">
+<input type="checkbox" id="act4" class="zoom">
+
+<label for="act4" class="activity-image">
 
 <img
 src="https://i.postimg.cc/Bb393Ch6/IMG-0925.jpg"
@@ -920,15 +1017,13 @@ alt="กิจกรรม 4"
 
 </label>
 
-<input type="checkbox" id="act4" class="zoom">
-
 <label for="act4" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/Bb393Ch6/IMG-0925.jpg"
-alt="กิจกรรม 4"
+alt="กิจกรรม 4 ขนาดใหญ่"
 >
 
 </label>
@@ -937,18 +1032,22 @@ alt="กิจกรรม 4"
 
 <small>ACTIVITY 04</small>
 
-<h3>กิจกรรมที่ 4</h3>
+<h3>
+กิจกรรมที่ 4
+</h3>
 
 </div>
 
 </div>
 
 
-<!-- กิจกรรม 5 -->
+<!-- ACTIVITY 5 -->
 
 <div class="activity">
 
-<label for="act5">
+<input type="checkbox" id="act5" class="zoom">
+
+<label for="act5" class="activity-image">
 
 <img
 src="https://i.postimg.cc/X7VSDQGh/IMG-0926.jpg"
@@ -957,15 +1056,13 @@ alt="กิจกรรม 5"
 
 </label>
 
-<input type="checkbox" id="act5" class="zoom">
-
 <label for="act5" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/X7VSDQGh/IMG-0926.jpg"
-alt="กิจกรรม 5"
+alt="กิจกรรม 5 ขนาดใหญ่"
 >
 
 </label>
@@ -974,18 +1071,22 @@ alt="กิจกรรม 5"
 
 <small>ACTIVITY 05</small>
 
-<h3>กิจกรรมที่ 5</h3>
+<h3>
+กิจกรรมที่ 5
+</h3>
 
 </div>
 
 </div>
 
 
-<!-- กิจกรรม 6 -->
+<!-- ACTIVITY 6 -->
 
 <div class="activity">
 
-<label for="act6">
+<input type="checkbox" id="act6" class="zoom">
+
+<label for="act6" class="activity-image">
 
 <img
 src="https://i.postimg.cc/y8xq7xTb/IMG-0927.jpg"
@@ -994,15 +1095,13 @@ alt="กิจกรรม 6"
 
 </label>
 
-<input type="checkbox" id="act6" class="zoom">
-
 <label for="act6" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/y8xq7xTb/IMG-0927.jpg"
-alt="กิจกรรม 6"
+alt="กิจกรรม 6 ขนาดใหญ่"
 >
 
 </label>
@@ -1011,18 +1110,22 @@ alt="กิจกรรม 6"
 
 <small>ACTIVITY 06</small>
 
-<h3>กิจกรรมที่ 6</h3>
+<h3>
+กิจกรรมที่ 6
+</h3>
 
 </div>
 
 </div>
 
 
-<!-- กิจกรรม 7 -->
+<!-- ACTIVITY 7 -->
 
 <div class="activity">
 
-<label for="act7">
+<input type="checkbox" id="act7" class="zoom">
+
+<label for="act7" class="activity-image">
 
 <img
 src="https://i.postimg.cc/DZVRQg3d/IMG-0928.jpg"
@@ -1031,15 +1134,13 @@ alt="กิจกรรม 7"
 
 </label>
 
-<input type="checkbox" id="act7" class="zoom">
-
 <label for="act7" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/DZVRQg3d/IMG-0928.jpg"
-alt="กิจกรรม 7"
+alt="กิจกรรม 7 ขนาดใหญ่"
 >
 
 </label>
@@ -1048,18 +1149,22 @@ alt="กิจกรรม 7"
 
 <small>ACTIVITY 07</small>
 
-<h3>กิจกรรมที่ 7</h3>
+<h3>
+กิจกรรมที่ 7
+</h3>
 
 </div>
 
 </div>
 
 
-<!-- กิจกรรม 8 -->
+<!-- ACTIVITY 8 -->
 
 <div class="activity">
 
-<label for="act8">
+<input type="checkbox" id="act8" class="zoom">
+
+<label for="act8" class="activity-image">
 
 <img
 src="https://i.postimg.cc/hvcw6tjj/IMG-0929.jpg"
@@ -1068,15 +1173,13 @@ alt="กิจกรรม 8"
 
 </label>
 
-<input type="checkbox" id="act8" class="zoom">
-
 <label for="act8" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/hvcw6tjj/IMG-0929.jpg"
-alt="กิจกรรม 8"
+alt="กิจกรรม 8 ขนาดใหญ่"
 >
 
 </label>
@@ -1085,18 +1188,22 @@ alt="กิจกรรม 8"
 
 <small>ACTIVITY 08</small>
 
-<h3>กิจกรรมที่ 8</h3>
+<h3>
+กิจกรรมที่ 8
+</h3>
 
 </div>
 
 </div>
 
 
-<!-- กิจกรรม 9 -->
+<!-- ACTIVITY 9 -->
 
 <div class="activity">
 
-<label for="act9">
+<input type="checkbox" id="act9" class="zoom">
+
+<label for="act9" class="activity-image">
 
 <img
 src="https://i.postimg.cc/DyfHc0Rh/IMG-0930.jpg"
@@ -1105,15 +1212,13 @@ alt="กิจกรรม 9"
 
 </label>
 
-<input type="checkbox" id="act9" class="zoom">
-
 <label for="act9" class="zoom-overlay">
 
 <span class="close">×</span>
 
 <img
 src="https://i.postimg.cc/DyfHc0Rh/IMG-0930.jpg"
-alt="กิจกรรม 9"
+alt="กิจกรรม 9 ขนาดใหญ่"
 >
 
 </label>
@@ -1122,7 +1227,9 @@ alt="กิจกรรม 9"
 
 <small>ACTIVITY 09</small>
 
-<h3>กิจกรรมที่ 9</h3>
+<h3>
+กิจกรรมที่ 9
+</h3>
 
 </div>
 
@@ -1135,7 +1242,7 @@ alt="กิจกรรม 9"
 
 
 <!-- =========================
-     BUTTONS
+BUTTONS
 ========================= -->
 
 <div class="back">
