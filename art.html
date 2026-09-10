@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>ผลงานวาด | Portfolio</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box
+}
+
+html{
+scroll-behavior:smooth
+}
+
+body{
+font-family:Arial,"Noto Sans Thai",sans-serif;
+background:#f5f5f5;
+color:#222
+}
+
+/* NAV */
+
+nav{
+height:75px;
+padding:0 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#fff;
+border-bottom:1px solid #ddd;
+position:sticky;
+top:0;
+z-index:10
+}
+
+.logo{
+font-weight:bold;
+letter-spacing:3px
+}
+
+.links{
+display:flex;
+gap:30px
+}
+
+.links a{
+text-decoration:none;
+color:#777;
+font-size:15px;
+transition:.3s
+}
+
+.links a:hover,
+.links .selected{
+color:#111;
+font-weight:bold
+}
+
+/* CONTENT */
+
+.content{
+max-width:1150px;
+margin:auto;
+padding:70px 25px
+}
+
+.header{
+text-align:center;
+margin-bottom:40px
+}
+
+.header small{
+letter-spacing:4px;
+color:#888
+}
+
+.header h1{
+font-size:60px;
+margin:10px 0
+}
+
+.line{
+width:80px;
+height:3px;
+background:#222;
+margin:20px auto
+}
+
+.header p{
+color:#777;
+line-height:1.8
+}
+
+/* TAB */
+
+.tabs{
+display:flex;
+justify-content:center;
+gap:10px;
+margin:0 auto 45px;
+padding:6px;
+background:#e9e9e9;
+border-radius:50px;
+width:max-content
+}
+
+.tabs label{
+padding:13px 30px;
+border-radius:40px;
+cursor:pointer;
+color:#777;
+font-size:15px;
+transition:.3s
+}
+
+.tabs label:hover{
+color:#222
+}
+
+/* HIDE RADIO */
+
+.tab-radio{
+display:none
+}
+
+/* DEFAULT TAB */
+
+#normal:checked ~ .tabs label[for="normal"],
+#digital:checked ~ .tabs label[for="digital"]{
+background:#222;
+color:#fff
+}
+
+/* GALLERY */
+
+.gallery{
+display:none;
+grid-template-columns:repeat(3,1fr);
+gap:25px
+}
+
+#normal:checked ~ .normal-gallery{
+display:grid
+}
+
+#digital:checked ~ .digital-gallery{
+display:grid
+}
+
+/* ART CARD */
+
+.art-card{
+background:#fff;
+border:1px solid #ddd;
+border-radius:18px;
+overflow:hidden;
+box-shadow:0 8px 25px #00000010;
+transition:.3s
+}
+
+.art-card:hover{
+transform:translateY(-6px);
+box-shadow:0 15px 35px #00000018
+}
+
+.art-card img{
+width:100%;
+height:330px;
+display:block;
+object-fit:cover;
+background:#eee
+}
+
+.art-info{
+padding:18px 20px
+}
+
+.art-info small{
+color:#999;
+letter-spacing:3px
+}
+
+.art-info h2{
+font-size:18px;
+margin-top:7px
+}
+
+/* BACK BUTTON */
+
+.back{
+text-align:center;
+margin-top:55px
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+gap:18px;
+padding:15px 28px;
+border-radius:50px;
+background:#222;
+color:#fff;
+font-size:16px;
+text-decoration:none;
+transition:.3s
+}
+
+.btn:hover{
+background:#555;
+transform:translateY(-3px)
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:35px;
+background:#222;
+color:#aaa;
+font-size:13px
+}
+
+/* MOBILE */
+
+@media(max-width:750px){
+
+nav{
+padding:0 15px
+}
+
+.logo{
+display:none
+}
+
+.links{
+gap:15px;
+width:100%;
+justify-content:center
+}
+
+.links a{
+font-size:12px
+}
+
+.header h1{
+font-size:42px
+}
+
+.tabs label{
+padding:12px 20px;
+font-size:13px
+}
+
+.gallery{
+grid-template-columns:1fr;
+gap:20px
+}
+
+.art-card img{
+height:auto;
+max-height:500px;
+object-fit:contain
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">
+PORTFOLIO
+</div>
+
+<div class="links">
+
+<a href="index.html">
+Home
+</a>
+
+<a href="about.html">
+About Me
+</a>
+
+<a href="art.html" class="selected">
+ผลงานวาด
+</a>
+
+<a href="portfolio.html">
+Portfolio
+</a>
+
+</div>
+
+</nav>
+
+
+<div class="content">
+
+<div class="header">
+
+<small>
+MY ARTWORK
+</small>
+
+<h1>
+ผลงานวาด
+</h1>
+
+<div class="line"></div>
+
+<p>
+รวมผลงานวาดรูปและผลงานศิลปะที่สร้างสรรค์ขึ้นในรูปแบบต่าง ๆ
+</p>
+
+</div>
+
+
+<!-- RADIO -->
+
+<input type="radio" name="art-tab" id="normal" class="tab-radio" checked>
+
+<input type="radio" name="art-tab" id="digital" class="tab-radio">
+
+
+<!-- TAB BUTTON -->
+
+<div class="tabs">
+
+<label for="normal">
+ผลงานวาดทั่วไป
+</label>
+
+<label for="digital">
+Digital Art
+</label>
+
+</div>
+
+
+<!-- NORMAL ART -->
+
+<div class="gallery normal-gallery">
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/K8JX2xbj/att-Xzi7VSjm-Ie-B3To-ZUFe-Xfyu-T6EC5Nwo-Eic-Li-D5-q2YGQ.jpg" alt="ผลงานวาด 01">
+
+<div class="art-info">
+<small>01</small>
+<h2>ผลงานวาด</h2>
+</div>
+
+</div>
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/4yCq536h/att-gn-XS9djq-Vh8Bwpf-0Oc7GTHWLNFWsv-Na-UQw7ZIg7gfo.jpg" alt="ผลงานวาด 02">
+
+<div class="art-info">
+<small>02</small>
+<h2>ผลงานวาด</h2>
+</div>
+
+</div>
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/kgMZwzby/IMG-0911.jpg" alt="ผลงานวาด 03">
+
+<div class="art-info">
+<small>03</small>
+<h2>ผลงานวาด</h2>
+</div>
+
+</div>
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/2j4KYrdh/IMG-0909.jpg" alt="ผลงานวาด 04">
+
+<div class="art-info">
+<small>04</small>
+<h2>ผลงานวาด</h2>
+</div>
+
+</div>
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/QdW5Lx15/IMG-0913.jpg" alt="ผลงานวาด 05">
+
+<div class="art-info">
+<small>05</small>
+<h2>ผลงานวาด</h2>
+</div>
+
+</div>
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/HxT77wKL/att-w-r0y-Qe7So-Gl9i-FTFDQLJj778q-T8q-Xzk-BHVphtsi-Em-I.jpg" alt="ผลงานวาด 06">
+
+<div class="art-info">
+<small>06</small>
+<h2>ผลงานวาด</h2>
+</div>
+
+</div>
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/4yd7WJXy/att-So-XGTSMPq-HMPozem1RGSZs-AFmm8YTUpnxc-Jmmh-HCLI.jpg" alt="ผลงานวาด 07">
+
+<div class="art-info">
+<small>07</small>
+<h2>ผลงานวาด</h2>
+</div>
+
+</div>
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/Kz94kdB5/att-1uw4TFYNIw9KBR7b-IUa-zs-UBn-JUj1Ia6Qr-Yq-F2fvox-M.jpg" alt="ผลงานวาด 08">
+
+<div class="art-info">
+<small>08</small>
+<h2>ผลงานวาด</h2>
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- DIGITAL ART -->
+
+<div class="gallery digital-gallery">
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/9XnrWHWy/IMG-0923.jpg" alt="Digital Art 01">
+
+<div class="art-info">
+<small>DIGITAL 01</small>
+<h2>Digital Art</h2>
+</div>
+
+</div>
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/Bv4vhqCg/IMG-0905.jpg" alt="Digital Art 02">
+
+<div class="art-info">
+<small>DIGITAL 02</small>
+<h2>Digital Art</h2>
+</div>
+
+</div>
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/D09v1FZB/mi-m-ch-x-23-20260910234256.jpg" alt="Digital Art 03">
+
+<div class="art-info">
+<small>DIGITAL 03</small>
+<h2>Digital Art</h2>
+</div>
+
+</div>
+
+
+<div class="art-card">
+
+<img src="https://i.postimg.cc/8PLJwnSM/mi-m-ch-x-11-20260801100949.png" alt="Digital Art 04">
+
+<div class="art-info">
+<small>DIGITAL 04</small>
+<h2>Digital Art</h2>
+</div>
+
+</div>
+
+
+</div>
+
+
+<div class="back">
+
+<a href="about.html" class="btn">
+← กลับไป About Me
+</a>
+
+<a href="portfolio.html" class="btn">
+ไปดูเกียรติบัตร →
+</a>
+
+</div>
+
+</div>
+
+
+<footer>
+
+© 2026 Portfolio | โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"
+
+</footer>
+
+</body>
+
+</html>
