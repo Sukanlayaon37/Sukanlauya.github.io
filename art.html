@@ -171,13 +171,85 @@ transform:translateY(-6px);
 box-shadow:0 15px 35px #00000018
 }
 
+/* IMAGE */
+
+.art-image{
+display:block;
+cursor:zoom-in;
+position:relative
+}
+
 .art-card img{
 width:100%;
 height:330px;
 display:block;
 object-fit:cover;
-background:#eee
+background:#eee;
+transition:.3s
 }
+
+.art-image:hover img{
+transform:scale(1.03)
+}
+
+/* ZOOM */
+
+.zoom{
+display:none
+}
+
+.zoom-overlay{
+position:fixed;
+inset:0;
+background:#000000d9;
+z-index:999;
+padding:40px;
+align-items:center;
+justify-content:center;
+cursor:zoom-out
+}
+
+.zoom-overlay img{
+max-width:92vw;
+max-height:88vh;
+width:auto;
+height:auto;
+object-fit:contain;
+border-radius:12px;
+box-shadow:0 0 40px #000;
+cursor:default
+}
+
+.zoom-close{
+position:absolute;
+top:20px;
+right:30px;
+width:45px;
+height:45px;
+border-radius:50%;
+background:#fff;
+color:#222;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+font-weight:bold;
+text-decoration:none;
+cursor:pointer;
+box-shadow:0 5px 20px #00000050
+}
+
+.zoom-close:hover{
+background:#ddd
+}
+
+/* SHOW ZOOM */
+
+.zoom:checked + .zoom-overlay{
+display:flex
+}
+
+/* ART INFO */
 
 .art-info{
 padding:18px 20px
@@ -274,6 +346,24 @@ max-height:500px;
 object-fit:contain
 }
 
+.zoom-overlay{
+padding:20px
+}
+
+.zoom-overlay img{
+max-width:96vw;
+max-height:85vh;
+border-radius:8px
+}
+
+.zoom-close{
+top:12px;
+right:15px;
+width:40px;
+height:40px;
+font-size:25px
+}
+
 }
 
 </style>
@@ -359,9 +449,15 @@ Digital Art
 <div class="gallery normal-gallery">
 
 
+<!-- ART 01 -->
+
 <div class="art-card">
 
+<label for="zoom01" class="art-image">
+
 <img src="https://i.postimg.cc/K8JX2xbj/att-Xzi7VSjm-Ie-B3To-ZUFe-Xfyu-T6EC5Nwo-Eic-Li-D5-q2YGQ.jpg" alt="ผลงานวาด 01">
+
+</label>
 
 <div class="art-info">
 <small>01</small>
@@ -371,9 +467,26 @@ Digital Art
 </div>
 
 
+<input type="checkbox" id="zoom01" class="zoom">
+
+<label for="zoom01" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/K8JX2xbj/att-Xzi7VSjm-Ie-B3To-ZUFe-Xfyu-T6EC5Nwo-Eic-Li-D5-q2YGQ.jpg" alt="ผลงานวาด 01 ขนาดใหญ่">
+
+</label>
+
+
+<!-- ART 02 -->
+
 <div class="art-card">
 
+<label for="zoom02" class="art-image">
+
 <img src="https://i.postimg.cc/4yCq536h/att-gn-XS9djq-Vh8Bwpf-0Oc7GTHWLNFWsv-Na-UQw7ZIg7gfo.jpg" alt="ผลงานวาด 02">
+
+</label>
 
 <div class="art-info">
 <small>02</small>
@@ -383,9 +496,26 @@ Digital Art
 </div>
 
 
+<input type="checkbox" id="zoom02" class="zoom">
+
+<label for="zoom02" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/4yCq536h/att-gn-XS9djq-Vh8Bwpf-0Oc7GTHWLNFWsv-Na-UQw7ZIg7gfo.jpg" alt="ผลงานวาด 02 ขนาดใหญ่">
+
+</label>
+
+
+<!-- ART 03 -->
+
 <div class="art-card">
 
+<label for="zoom03" class="art-image">
+
 <img src="https://i.postimg.cc/kgMZwzby/IMG-0911.jpg" alt="ผลงานวาด 03">
+
+</label>
 
 <div class="art-info">
 <small>03</small>
@@ -395,9 +525,26 @@ Digital Art
 </div>
 
 
+<input type="checkbox" id="zoom03" class="zoom">
+
+<label for="zoom03" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/kgMZwzby/IMG-0911.jpg" alt="ผลงานวาด 03 ขนาดใหญ่">
+
+</label>
+
+
+<!-- ART 04 -->
+
 <div class="art-card">
 
+<label for="zoom04" class="art-image">
+
 <img src="https://i.postimg.cc/2j4KYrdh/IMG-0909.jpg" alt="ผลงานวาด 04">
+
+</label>
 
 <div class="art-info">
 <small>04</small>
@@ -407,9 +554,26 @@ Digital Art
 </div>
 
 
+<input type="checkbox" id="zoom04" class="zoom">
+
+<label for="zoom04" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/2j4KYrdh/IMG-0909.jpg" alt="ผลงานวาด 04 ขนาดใหญ่">
+
+</label>
+
+
+<!-- ART 05 -->
+
 <div class="art-card">
 
+<label for="zoom05" class="art-image">
+
 <img src="https://i.postimg.cc/QdW5Lx15/IMG-0913.jpg" alt="ผลงานวาด 05">
+
+</label>
 
 <div class="art-info">
 <small>05</small>
@@ -419,9 +583,26 @@ Digital Art
 </div>
 
 
+<input type="checkbox" id="zoom05" class="zoom">
+
+<label for="zoom05" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/QdW5Lx15/IMG-0913.jpg" alt="ผลงานวาด 05 ขนาดใหญ่">
+
+</label>
+
+
+<!-- ART 06 -->
+
 <div class="art-card">
 
+<label for="zoom06" class="art-image">
+
 <img src="https://i.postimg.cc/HxT77wKL/att-w-r0y-Qe7So-Gl9i-FTFDQLJj778q-T8q-Xzk-BHVphtsi-Em-I.jpg" alt="ผลงานวาด 06">
+
+</label>
 
 <div class="art-info">
 <small>06</small>
@@ -431,9 +612,26 @@ Digital Art
 </div>
 
 
+<input type="checkbox" id="zoom06" class="zoom">
+
+<label for="zoom06" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/HxT77wKL/att-w-r0y-Qe7So-Gl9i-FTFDQLJj778q-T8q-Xzk-BHVphtsi-Em-I.jpg" alt="ผลงานวาด 06 ขนาดใหญ่">
+
+</label>
+
+
+<!-- ART 07 -->
+
 <div class="art-card">
 
+<label for="zoom07" class="art-image">
+
 <img src="https://i.postimg.cc/4yd7WJXy/att-So-XGTSMPq-HMPozem1RGSZs-AFmm8YTUpnxc-Jmmh-HCLI.jpg" alt="ผลงานวาด 07">
+
+</label>
 
 <div class="art-info">
 <small>07</small>
@@ -443,9 +641,26 @@ Digital Art
 </div>
 
 
+<input type="checkbox" id="zoom07" class="zoom">
+
+<label for="zoom07" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/4yd7WJXy/att-So-XGTSMPq-HMPozem1RGSZs-AFmm8YTUpnxc-Jmmh-HCLI.jpg" alt="ผลงานวาด 07 ขนาดใหญ่">
+
+</label>
+
+
+<!-- ART 08 -->
+
 <div class="art-card">
 
+<label for="zoom08" class="art-image">
+
 <img src="https://i.postimg.cc/Kz94kdB5/att-1uw4TFYNIw9KBR7b-IUa-zs-UBn-JUj1Ia6Qr-Yq-F2fvox-M.jpg" alt="ผลงานวาด 08">
+
+</label>
 
 <div class="art-info">
 <small>08</small>
@@ -453,6 +668,17 @@ Digital Art
 </div>
 
 </div>
+
+
+<input type="checkbox" id="zoom08" class="zoom">
+
+<label for="zoom08" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/Kz94kdB5/att-1uw4TFYNIw9KBR7b-IUa-zs-UBn-JUj1Ia6Qr-Yq-F2fvox-M.jpg" alt="ผลงานวาด 08 ขนาดใหญ่">
+
+</label>
 
 
 </div>
@@ -463,9 +689,15 @@ Digital Art
 <div class="gallery digital-gallery">
 
 
+<!-- DIGITAL 01 -->
+
 <div class="art-card">
 
+<label for="zoom09" class="art-image">
+
 <img src="https://i.postimg.cc/9XnrWHWy/IMG-0923.jpg" alt="Digital Art 01">
+
+</label>
 
 <div class="art-info">
 <small>DIGITAL 01</small>
@@ -475,9 +707,26 @@ Digital Art
 </div>
 
 
+<input type="checkbox" id="zoom09" class="zoom">
+
+<label for="zoom09" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/9XnrWHWy/IMG-0923.jpg" alt="Digital Art 01 ขนาดใหญ่">
+
+</label>
+
+
+<!-- DIGITAL 02 -->
+
 <div class="art-card">
 
+<label for="zoom10" class="art-image">
+
 <img src="https://i.postimg.cc/Bv4vhqCg/IMG-0905.jpg" alt="Digital Art 02">
+
+</label>
 
 <div class="art-info">
 <small>DIGITAL 02</small>
@@ -487,9 +736,26 @@ Digital Art
 </div>
 
 
+<input type="checkbox" id="zoom10" class="zoom">
+
+<label for="zoom10" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/Bv4vhqCg/IMG-0905.jpg" alt="Digital Art 02 ขนาดใหญ่">
+
+</label>
+
+
+<!-- DIGITAL 03 -->
+
 <div class="art-card">
 
+<label for="zoom11" class="art-image">
+
 <img src="https://i.postimg.cc/D09v1FZB/mi-m-ch-x-23-20260910234256.jpg" alt="Digital Art 03">
+
+</label>
 
 <div class="art-info">
 <small>DIGITAL 03</small>
@@ -499,9 +765,26 @@ Digital Art
 </div>
 
 
+<input type="checkbox" id="zoom11" class="zoom">
+
+<label for="zoom11" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/D09v1FZB/mi-m-ch-x-23-20260910234256.jpg" alt="Digital Art 03 ขนาดใหญ่">
+
+</label>
+
+
+<!-- DIGITAL 04 -->
+
 <div class="art-card">
 
+<label for="zoom12" class="art-image">
+
 <img src="https://i.postimg.cc/8PLJwnSM/mi-m-ch-x-11-20260801100949.png" alt="Digital Art 04">
+
+</label>
 
 <div class="art-info">
 <small>DIGITAL 04</small>
@@ -509,6 +792,17 @@ Digital Art
 </div>
 
 </div>
+
+
+<input type="checkbox" id="zoom12" class="zoom">
+
+<label for="zoom12" class="zoom-overlay">
+
+<span class="zoom-close">×</span>
+
+<img src="https://i.postimg.cc/8PLJwnSM/mi-m-ch-x-11-20260801100949.png" alt="Digital Art 04 ขนาดใหญ่">
+
+</label>
 
 
 </div>
