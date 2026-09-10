@@ -26,7 +26,6 @@ background:#f5f5f5;
 color:#222
 }
 
-
 /* NAV */
 
 nav{
@@ -65,7 +64,6 @@ color:#111;
 font-weight:bold
 }
 
-
 /* CONTENT */
 
 .content{
@@ -101,7 +99,6 @@ color:#777;
 line-height:1.8
 }
 
-
 /* TAB */
 
 .tabs{
@@ -128,22 +125,19 @@ transition:.3s
 color:#222
 }
 
-
 /* HIDE RADIO */
 
 .tab-radio{
 display:none
 }
 
-
-/* ACTIVE TAB */
+/* TAB ACTIVE */
 
 #normal:checked ~ .tabs label[for="normal"],
 #digital:checked ~ .tabs label[for="digital"]{
 background:#222;
 color:#fff
 }
-
 
 /* GALLERY */
 
@@ -161,7 +155,6 @@ display:grid
 display:grid
 }
 
-
 /* ART CARD */
 
 .art-card{
@@ -178,27 +171,28 @@ transform:translateY(-6px);
 box-shadow:0 15px 35px #00000018
 }
 
-
-/* CLICKABLE IMAGE */
+/* รูปในกรอบ */
 
 .image-button{
 display:block;
-cursor:pointer
-}
-
-.art-card img{
 width:100%;
 height:330px;
+background:#eee;
+cursor:zoom-in
+}
+
+.image-button img{
+width:100%;
+height:100%;
 display:block;
-object-fit:cover;
+object-fit:contain;
 background:#eee;
 transition:.3s
 }
 
 .image-button:hover img{
-opacity:.88
+transform:scale(1.02)
 }
-
 
 /* ART INFO */
 
@@ -216,10 +210,9 @@ font-size:18px;
 margin-top:7px
 }
 
-
-/* =================================
-   IMAGE ZOOM / LIGHTBOX
-================================= */
+/* =========================
+   IMAGE LIGHTBOX
+========================= */
 
 .zoom{
 display:none
@@ -241,6 +234,8 @@ cursor:pointer
 display:flex
 }
 
+/* รูปใหญ่ */
+
 .zoom-overlay img{
 display:block;
 max-width:92vw;
@@ -248,30 +243,36 @@ max-height:88vh;
 width:auto;
 height:auto;
 object-fit:contain;
-border-radius:10px;
+border-radius:12px;
 box-shadow:0 20px 70px #000;
 cursor:default
 }
 
-
-/* CLOSE BUTTON */
+/* ปุ่ม X */
 
 .close{
 position:absolute;
 top:18px;
-right:30px;
-width:50px;
-height:50px;
+right:28px;
+width:52px;
+height:52px;
+
 display:flex;
 align-items:center;
 justify-content:center;
+
 border-radius:50%;
-background:#ffffff22;
+
+background:#ffffff25;
+border:1px solid #ffffff55;
+
 color:#fff;
 font-size:38px;
 font-weight:300;
 line-height:1;
+
 cursor:pointer;
+
 transition:.3s
 }
 
@@ -280,7 +281,6 @@ background:#fff;
 color:#222;
 transform:rotate(90deg)
 }
-
 
 /* BACK BUTTON */
 
@@ -311,7 +311,6 @@ background:#555;
 transform:translateY(-3px)
 }
 
-
 /* FOOTER */
 
 footer{
@@ -321,7 +320,6 @@ background:#222;
 color:#aaa;
 font-size:13px
 }
-
 
 /* MOBILE */
 
@@ -353,6 +351,10 @@ padding:50px 18px
 font-size:42px
 }
 
+.header p{
+font-size:14px
+}
+
 .tabs label{
 padding:12px 20px;
 font-size:13px
@@ -363,27 +365,36 @@ grid-template-columns:1fr;
 gap:20px
 }
 
-.art-card img{
+/* ให้เห็นรูปครบในมือถือ */
+
+.image-button{
+height:auto;
+min-height:250px
+}
+
+.image-button img{
 height:auto;
 max-height:500px;
 object-fit:contain
 }
+
+/* รูปตอนขยาย */
 
 .zoom-overlay{
 padding:15px
 }
 
 .zoom-overlay img{
-max-width:95vw;
+max-width:94vw;
 max-height:82vh
 }
 
 .close{
-top:10px;
+top:12px;
 right:15px;
 width:45px;
 height:45px;
-font-size:34px
+font-size:32px
 }
 
 }
@@ -393,9 +404,6 @@ font-size:34px
 </head>
 
 <body>
-
-
-<!-- NAV -->
 
 <nav>
 
@@ -425,11 +433,7 @@ Portfolio
 
 </nav>
 
-
 <div class="content">
-
-
-<!-- HEADER -->
 
 <div class="header">
 
@@ -452,20 +456,9 @@ MY ARTWORK
 
 <!-- RADIO -->
 
-<input
-type="radio"
-name="art-tab"
-id="normal"
-class="tab-radio"
-checked
->
+<input type="radio" name="art-tab" id="normal" class="tab-radio" checked>
 
-<input
-type="radio"
-name="art-tab"
-id="digital"
-class="tab-radio"
->
+<input type="radio" name="art-tab" id="digital" class="tab-radio">
 
 
 <!-- TAB BUTTON -->
@@ -483,379 +476,242 @@ Digital Art
 </div>
 
 
-<!-- ==========================================
+<!-- ==================================================
      NORMAL ART
-========================================== -->
+================================================== -->
 
 <div class="gallery normal-gallery">
 
 
-<!-- ART 01 -->
+<!-- 01 -->
 
 <div class="art-card">
 
-<label for="zoom1" class="image-button">
+<input type="checkbox" id="zoom01" class="zoom">
 
-<img
-src="https://i.postimg.cc/K8JX2xbj/att-Xzi7VSjm-Ie-B3To-ZUFe-Xfyu-T6EC5Nwo-Eic-Li-D5-q2YGQ.jpg"
-alt="ผลงานวาด 01"
->
+<label for="zoom01" class="image-button">
+
+<img src="https://i.postimg.cc/K8JX2xbj/att-Xzi7VSjm-Ie-B3To-ZUFe-Xfyu-T6EC5Nwo-Eic-Li-D5-q2YGQ.jpg" alt="ผลงานวาด 01">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom1"
-class="zoom"
->
+<label for="zoom01" class="zoom-overlay">
 
-<label for="zoom1" class="zoom-overlay">
+<span class="close">×</span>
 
-<span class="close">
-×
-</span>
-
-<img
-src="https://i.postimg.cc/K8JX2xbj/att-Xzi7VSjm-Ie-B3To-ZUFe-Xfyu-T6EC5Nwo-Eic-Li-D5-q2YGQ.jpg"
-alt="ผลงานวาด 01"
->
+<img src="https://i.postimg.cc/K8JX2xbj/att-Xzi7VSjm-Ie-B3To-ZUFe-Xfyu-T6EC5Nwo-Eic-Li-D5-q2YGQ.jpg" alt="ผลงานวาด 01 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>01</small>
-
-<h2>
-ผลงานวาด
-</h2>
-
+<h2>ผลงานวาด</h2>
 </div>
 
 </div>
 
 
-<!-- ART 02 -->
+<!-- 02 -->
 
 <div class="art-card">
 
-<label for="zoom2" class="image-button">
+<input type="checkbox" id="zoom02" class="zoom">
 
-<img
-src="https://i.postimg.cc/4yCq536h/att-gn-XS9djq-Vh8Bwpf-0Oc7GTHWLNFWsv-Na-UQw7ZIg7gfo.jpg"
-alt="ผลงานวาด 02"
->
+<label for="zoom02" class="image-button">
+
+<img src="https://i.postimg.cc/4yCq536h/att-gn-XS9djq-Vh8Bwpf-0Oc7GTHWLNFWsv-Na-UQw7ZIg7gfo.jpg" alt="ผลงานวาด 02">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom2"
-class="zoom"
->
+<label for="zoom02" class="zoom-overlay">
 
-<label for="zoom2" class="zoom-overlay">
+<span class="close">×</span>
 
-<span class="close">
-×
-</span>
-
-<img
-src="https://i.postimg.cc/4yCq536h/att-gn-XS9djq-Vh8Bwpf-0Oc7GTHWLNFWsv-Na-UQw7ZIg7gfo.jpg"
-alt="ผลงานวาด 02"
->
+<img src="https://i.postimg.cc/4yCq536h/att-gn-XS9djq-Vh8Bwpf-0Oc7GTHWLNFWsv-Na-UQw7ZIg7gfo.jpg" alt="ผลงานวาด 02 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>02</small>
-
-<h2>
-ผลงานวาด
-</h2>
-
+<h2>ผลงานวาด</h2>
 </div>
 
 </div>
 
 
-<!-- ART 03 -->
+<!-- 03 -->
 
 <div class="art-card">
 
-<label for="zoom3" class="image-button">
+<input type="checkbox" id="zoom03" class="zoom">
 
-<img
-src="https://i.postimg.cc/kgMZwzby/IMG-0911.jpg"
-alt="ผลงานวาด 03"
->
+<label for="zoom03" class="image-button">
+
+<img src="https://i.postimg.cc/kgMZwzby/IMG-0911.jpg" alt="ผลงานวาด 03">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom3"
-class="zoom"
->
+<label for="zoom03" class="zoom-overlay">
 
-<label for="zoom3" class="zoom-overlay">
+<span class="close">×</span>
 
-<span class="close">
-×
-</span>
-
-<img
-src="https://i.postimg.cc/kgMZwzby/IMG-0911.jpg"
-alt="ผลงานวาด 03"
->
+<img src="https://i.postimg.cc/kgMZwzby/IMG-0911.jpg" alt="ผลงานวาด 03 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>03</small>
-
-<h2>
-ผลงานวาด
-</h2>
-
+<h2>ผลงานวาด</h2>
 </div>
 
 </div>
 
 
-<!-- ART 04 -->
+<!-- 04 -->
 
 <div class="art-card">
 
-<label for="zoom4" class="image-button">
+<input type="checkbox" id="zoom04" class="zoom">
 
-<img
-src="https://i.postimg.cc/2j4KYrdh/IMG-0909.jpg"
-alt="ผลงานวาด 04"
->
+<label for="zoom04" class="image-button">
+
+<img src="https://i.postimg.cc/2j4KYrdh/IMG-0909.jpg" alt="ผลงานวาด 04">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom4"
-class="zoom"
->
+<label for="zoom04" class="zoom-overlay">
 
-<label for="zoom4" class="zoom-overlay">
+<span class="close">×</span>
 
-<span class="close">
-×
-</span>
-
-<img
-src="https://i.postimg.cc/2j4KYrdh/IMG-0909.jpg"
-alt="ผลงานวาด 04"
->
+<img src="https://i.postimg.cc/2j4KYrdh/IMG-0909.jpg" alt="ผลงานวาด 04 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>04</small>
-
-<h2>
-ผลงานวาด
-</h2>
-
+<h2>ผลงานวาด</h2>
 </div>
 
 </div>
 
 
-<!-- ART 05 -->
+<!-- 05 -->
 
 <div class="art-card">
 
-<label for="zoom5" class="image-button">
+<input type="checkbox" id="zoom05" class="zoom">
 
-<img
-src="https://i.postimg.cc/QdW5Lx15/IMG-0913.jpg"
-alt="ผลงานวาด 05"
->
+<label for="zoom05" class="image-button">
+
+<img src="https://i.postimg.cc/QdW5Lx15/IMG-0913.jpg" alt="ผลงานวาด 05">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom5"
-class="zoom"
->
+<label for="zoom05" class="zoom-overlay">
 
-<label for="zoom5" class="zoom-overlay">
+<span class="close">×</span>
 
-<span class="close">
-×
-</span>
-
-<img
-src="https://i.postimg.cc/QdW5Lx15/IMG-0913.jpg"
-alt="ผลงานวาด 05"
->
+<img src="https://i.postimg.cc/QdW5Lx15/IMG-0913.jpg" alt="ผลงานวาด 05 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>05</small>
-
-<h2>
-ผลงานวาด
-</h2>
-
+<h2>ผลงานวาด</h2>
 </div>
 
 </div>
 
 
-<!-- ART 06 -->
+<!-- 06 -->
 
 <div class="art-card">
 
-<label for="zoom6" class="image-button">
+<input type="checkbox" id="zoom06" class="zoom">
 
-<img
-src="https://i.postimg.cc/HxT77wKL/att-w-r0y-Qe7So-Gl9i-FTFDQLJj778q-T8q-Xzk-BHVphtsi-Em-I.jpg"
-alt="ผลงานวาด 06"
->
+<label for="zoom06" class="image-button">
+
+<img src="https://i.postimg.cc/HxT77wKL/att-w-r0y-Qe7So-Gl9i-FTFDQLJj778q-T8q-Xzk-BHVphtsi-Em-I.jpg" alt="ผลงานวาด 06">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom6"
-class="zoom"
->
+<label for="zoom06" class="zoom-overlay">
 
-<label for="zoom6" class="zoom-overlay">
+<span class="close">×</span>
 
-<span class="close">
-×
-</span>
-
-<img
-src="https://i.postimg.cc/HxT77wKL/att-w-r0y-Qe7So-Gl9i-FTFDQLJj778q-T8q-Xzk-BHVphtsi-Em-I.jpg"
-alt="ผลงานวาด 06"
->
+<img src="https://i.postimg.cc/HxT77wKL/att-w-r0y-Qe7So-Gl9i-FTFDQLJj778q-T8q-Xzk-BHVphtsi-Em-I.jpg" alt="ผลงานวาด 06 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>06</small>
-
-<h2>
-ผลงานวาด
-</h2>
-
+<h2>ผลงานวาด</h2>
 </div>
 
 </div>
 
 
-<!-- ART 07 -->
+<!-- 07 -->
 
 <div class="art-card">
 
-<label for="zoom7" class="image-button">
+<input type="checkbox" id="zoom07" class="zoom">
 
-<img
-src="https://i.postimg.cc/4yd7WJXy/att-So-XGTSMPq-HMPozem1RGSZs-AFmm8YTUpnxc-Jmmh-HCLI.jpg"
-alt="ผลงานวาด 07"
->
+<label for="zoom07" class="image-button">
+
+<img src="https://i.postimg.cc/4yd7WJXy/att-So-XGTSMPq-HMPozem1RGSZs-AFmm8YTUpnxc-Jmmh-HCLI.jpg" alt="ผลงานวาด 07">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom7"
-class="zoom"
->
+<label for="zoom07" class="zoom-overlay">
 
-<label for="zoom7" class="zoom-overlay">
+<span class="close">×</span>
 
-<span class="close">
-×
-</span>
-
-<img
-src="https://i.postimg.cc/4yd7WJXy/att-So-XGTSMPq-HMPozem1RGSZs-AFmm8YTUpnxc-Jmmh-HCLI.jpg"
-alt="ผลงานวาด 07"
->
+<img src="https://i.postimg.cc/4yd7WJXy/att-So-XGTSMPq-HMPozem1RGSZs-AFmm8YTUpnxc-Jmmh-HCLI.jpg" alt="ผลงานวาด 07 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>07</small>
-
-<h2>
-ผลงานวาด
-</h2>
-
+<h2>ผลงานวาด</h2>
 </div>
 
 </div>
 
 
-<!-- ART 08 -->
+<!-- 08 -->
 
 <div class="art-card">
 
-<label for="zoom8" class="image-button">
+<input type="checkbox" id="zoom08" class="zoom">
 
-<img
-src="https://i.postimg.cc/Kz94kdB5/att-1uw4TFYNIw9KBR7b-IUa-zs-UBn-JUj1Ia6Qr-Yq-F2fvox-M.jpg"
-alt="ผลงานวาด 08"
->
+<label for="zoom08" class="image-button">
+
+<img src="https://i.postimg.cc/Kz94kdB5/att-1uw4TFYNIw9KBR7b-IUa-zs-UBn-JUj1Ia6Qr-Yq-F2fvox-M.jpg" alt="ผลงานวาด 08">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom8"
-class="zoom"
->
+<label for="zoom08" class="zoom-overlay">
 
-<label for="zoom8" class="zoom-overlay">
+<span class="close">×</span>
 
-<span class="close">
-×
-</span>
-
-<img
-src="https://i.postimg.cc/Kz94kdB5/att-1uw4TFYNIw9KBR7b-IUa-zs-UBn-JUj1Ia6Qr-Yq-F2fvox-M.jpg"
-alt="ผลงานวาด 08"
->
+<img src="https://i.postimg.cc/Kz94kdB5/att-1uw4TFYNIw9KBR7b-IUa-zs-UBn-JUj1Ia6Qr-Yq-F2fvox-M.jpg" alt="ผลงานวาด 08 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>08</small>
-
-<h2>
-ผลงานวาด
-</h2>
-
+<h2>ผลงานวาด</h2>
 </div>
 
 </div>
 
-
 </div>
 
 
-<!-- ==========================================
+<!-- ==================================================
      DIGITAL ART
-========================================== -->
+================================================== -->
 
 <div class="gallery digital-gallery">
 
@@ -864,42 +720,25 @@ alt="ผลงานวาด 08"
 
 <div class="art-card">
 
-<label for="zoom9" class="image-button">
+<input type="checkbox" id="zoom09" class="zoom">
 
-<img
-src="https://i.postimg.cc/9XnrWHWy/IMG-0923.jpg"
-alt="Digital Art 01"
->
+<label for="zoom09" class="image-button">
+
+<img src="https://i.postimg.cc/9XnrWHWy/IMG-0923.jpg" alt="Digital Art 01">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom9"
-class="zoom"
->
+<label for="zoom09" class="zoom-overlay">
 
-<label for="zoom9" class="zoom-overlay">
+<span class="close">×</span>
 
-<span class="close">
-×
-</span>
-
-<img
-src="https://i.postimg.cc/9XnrWHWy/IMG-0923.jpg"
-alt="Digital Art 01"
->
+<img src="https://i.postimg.cc/9XnrWHWy/IMG-0923.jpg" alt="Digital Art 01 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>DIGITAL 01</small>
-
-<h2>
-Digital Art
-</h2>
-
+<h2>Digital Art</h2>
 </div>
 
 </div>
@@ -909,42 +748,25 @@ Digital Art
 
 <div class="art-card">
 
+<input type="checkbox" id="zoom10" class="zoom">
+
 <label for="zoom10" class="image-button">
 
-<img
-src="https://i.postimg.cc/Bv4vhqCg/IMG-0905.jpg"
-alt="Digital Art 02"
->
+<img src="https://i.postimg.cc/Bv4vhqCg/IMG-0905.jpg" alt="Digital Art 02">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom10"
-class="zoom"
->
-
 <label for="zoom10" class="zoom-overlay">
 
-<span class="close">
-×
-</span>
+<span class="close">×</span>
 
-<img
-src="https://i.postimg.cc/Bv4vhqCg/IMG-0905.jpg"
-alt="Digital Art 02"
->
+<img src="https://i.postimg.cc/Bv4vhqCg/IMG-0905.jpg" alt="Digital Art 02 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>DIGITAL 02</small>
-
-<h2>
-Digital Art
-</h2>
-
+<h2>Digital Art</h2>
 </div>
 
 </div>
@@ -954,42 +776,25 @@ Digital Art
 
 <div class="art-card">
 
+<input type="checkbox" id="zoom11" class="zoom">
+
 <label for="zoom11" class="image-button">
 
-<img
-src="https://i.postimg.cc/D09v1FZB/mi-m-ch-x-23-20260910234256.jpg"
-alt="Digital Art 03"
->
+<img src="https://i.postimg.cc/D09v1FZB/mi-m-ch-x-23-20260910234256.jpg" alt="Digital Art 03">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom11"
-class="zoom"
->
-
 <label for="zoom11" class="zoom-overlay">
 
-<span class="close">
-×
-</span>
+<span class="close">×</span>
 
-<img
-src="https://i.postimg.cc/D09v1FZB/mi-m-ch-x-23-20260910234256.jpg"
-alt="Digital Art 03"
->
+<img src="https://i.postimg.cc/D09v1FZB/mi-m-ch-x-23-20260910234256.jpg" alt="Digital Art 03 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>DIGITAL 03</small>
-
-<h2>
-Digital Art
-</h2>
-
+<h2>Digital Art</h2>
 </div>
 
 </div>
@@ -999,51 +804,33 @@ Digital Art
 
 <div class="art-card">
 
+<input type="checkbox" id="zoom12" class="zoom">
+
 <label for="zoom12" class="image-button">
 
-<img
-src="https://i.postimg.cc/8PLJwnSM/mi-m-ch-x-11-20260801100949.png"
-alt="Digital Art 04"
->
+<img src="https://i.postimg.cc/8PLJwnSM/mi-m-ch-x-11-20260801100949.png" alt="Digital Art 04">
 
 </label>
 
-<input
-type="checkbox"
-id="zoom12"
-class="zoom"
->
-
 <label for="zoom12" class="zoom-overlay">
 
-<span class="close">
-×
-</span>
+<span class="close">×</span>
 
-<img
-src="https://i.postimg.cc/8PLJwnSM/mi-m-ch-x-11-20260801100949.png"
-alt="Digital Art 04"
->
+<img src="https://i.postimg.cc/8PLJwnSM/mi-m-ch-x-11-20260801100949.png" alt="Digital Art 04 ขนาดใหญ่">
 
 </label>
 
 <div class="art-info">
-
 <small>DIGITAL 04</small>
-
-<h2>
-Digital Art
-</h2>
-
+<h2>Digital Art</h2>
 </div>
 
 </div>
 
-
 </div>
 
 
-<!-- BUTTONS -->
+<!-- NEXT PAGE -->
 
 <div class="back">
 
@@ -1056,7 +843,6 @@ Digital Art
 </a>
 
 </div>
-
 
 </div>
 
