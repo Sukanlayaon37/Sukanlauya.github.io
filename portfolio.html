@@ -6,9 +6,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-<title>เกียรติบัตร | Portfolio</title>
+<title>Portfolio | ผลงานและกิจกรรม</title>
 
 <style>
+
 *{
 margin:0;
 padding:0;
@@ -35,7 +36,7 @@ background:#fff;
 border-bottom:1px solid #ddd;
 position:sticky;
 top:0;
-z-index:10
+z-index:100
 }
 
 .logo{
@@ -51,7 +52,8 @@ gap:30px
 .links a{
 text-decoration:none;
 color:#777;
-font-size:15px
+font-size:15px;
+transition:.3s
 }
 
 .links a:hover,
@@ -68,7 +70,7 @@ padding:70px 25px
 
 .header{
 text-align:center;
-margin-bottom:55px
+margin-bottom:65px
 }
 
 .header small{
@@ -89,8 +91,45 @@ margin:20px auto
 }
 
 .header p{
-color:#777
+color:#777;
+line-height:1.8
 }
+
+
+/* =========================
+   SECTION
+========================= */
+
+.section{
+margin-bottom:90px
+}
+
+.section-title{
+text-align:center;
+margin-bottom:40px
+}
+
+.section-title small{
+letter-spacing:4px;
+color:#999
+}
+
+.section-title h2{
+font-size:35px;
+margin-top:8px
+}
+
+.section-title .mini-line{
+width:55px;
+height:2px;
+background:#222;
+margin:15px auto
+}
+
+
+/* =========================
+   CERTIFICATES
+========================= */
 
 .certificates{
 display:flex;
@@ -111,7 +150,13 @@ display:block;
 width:100%;
 max-height:700px;
 object-fit:contain;
-background:#eee
+background:#eee;
+cursor:pointer;
+transition:.3s
+}
+
+.certificate img:hover{
+opacity:.9
 }
 
 .cert-info{
@@ -123,14 +168,121 @@ color:#999;
 letter-spacing:3px
 }
 
-.cert-info h2{
+.cert-info h3{
 margin:8px 0 10px;
 font-size:23px
 }
 
+
+/* =========================
+   ACTIVITY GRID
+========================= */
+
+.activities{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px
+}
+
+.activity{
+background:#fff;
+border-radius:18px;
+overflow:hidden;
+border:1px solid #ddd;
+box-shadow:0 8px 25px #00000010;
+transition:.3s
+}
+
+.activity:hover{
+transform:translateY(-5px);
+box-shadow:0 15px 35px #00000015
+}
+
+.activity img{
+display:block;
+width:100%;
+height:280px;
+object-fit:cover;
+cursor:pointer;
+transition:.3s
+}
+
+.activity img:hover{
+opacity:.9
+}
+
+.activity-info{
+padding:16px 18px
+}
+
+.activity-info small{
+color:#999;
+letter-spacing:2px
+}
+
+.activity-info h3{
+font-size:17px;
+margin-top:5px
+}
+
+
+/* =========================
+   IMAGE LIGHTBOX
+========================= */
+
+.zoom{
+display:none
+}
+
+.zoom-overlay{
+display:none;
+position:fixed;
+inset:0;
+background:#000000e8;
+z-index:999;
+align-items:center;
+justify-content:center;
+padding:30px;
+cursor:pointer
+}
+
+.zoom:checked + .zoom-overlay{
+display:flex
+}
+
+.zoom-overlay img{
+max-width:95vw;
+max-height:90vh;
+width:auto;
+height:auto;
+object-fit:contain;
+border-radius:10px;
+box-shadow:0 20px 70px #000
+}
+
+.close{
+position:absolute;
+top:20px;
+right:30px;
+font-size:45px;
+color:#fff;
+font-weight:bold;
+line-height:1;
+cursor:pointer
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
 .back{
 text-align:center;
-margin-top:55px
+margin-top:65px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap
 }
 
 .btn{
@@ -151,6 +303,11 @@ background:#555;
 transform:translateY(-3px)
 }
 
+
+/* =========================
+   FOOTER
+========================= */
+
 footer{
 text-align:center;
 padding:35px;
@@ -158,6 +315,11 @@ background:#222;
 color:#aaa;
 font-size:13px
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:750px){
 
@@ -170,17 +332,25 @@ display:none
 }
 
 .links{
-gap:15px;
+gap:12px;
 width:100%;
 justify-content:center
 }
 
 .links a{
-font-size:12px
+font-size:11px
+}
+
+.content{
+padding:50px 18px
 }
 
 .header h1{
 font-size:42px
+}
+
+.section-title h2{
+font-size:29px
 }
 
 .certificate img{
@@ -188,12 +358,62 @@ max-height:none;
 width:100%
 }
 
+.activities{
+grid-template-columns:1fr 1fr;
+gap:14px
 }
+
+.activity img{
+height:220px
+}
+
+.activity-info{
+padding:12px
+}
+
+.activity-info h3{
+font-size:14px
+}
+
+.zoom-overlay{
+padding:15px
+}
+
+.zoom-overlay img{
+max-width:96vw;
+max-height:85vh
+}
+
+.close{
+top:10px;
+right:18px;
+font-size:38px
+}
+
+}
+
+@media(max-width:450px){
+
+.activities{
+grid-template-columns:1fr
+}
+
+.activity img{
+height:280px
+}
+
+}
+
 </style>
 
 </head>
 
 <body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
 
 <nav>
 
@@ -211,6 +431,10 @@ Home
 About Me
 </a>
 
+<a href="art.html">
+ผลงานวาด
+</a>
+
 <a href="portfolio.html" class="selected">
 Portfolio
 </a>
@@ -219,109 +443,700 @@ Portfolio
 
 </nav>
 
+
 <div class="content">
+
+
+<!-- =========================
+     HEADER
+========================= -->
 
 <div class="header">
 
 <small>
-MY ACHIEVEMENTS
+MY PORTFOLIO
 </small>
 
 <h1>
-เกียรติบัตร
+Portfolio
 </h1>
 
 <div class="line"></div>
 
 <p>
-รวบรวมเกียรติบัตรและผลงานที่ได้รับจากกิจกรรมต่าง ๆ
+รวบรวมเกียรติบัตร ผลงาน และกิจกรรมต่าง ๆ
 </p>
 
 </div>
 
+
+<!-- ==================================================
+     SECTION 1 : CERTIFICATES
+================================================== -->
+
+<div class="section">
+
+<div class="section-title">
+
+<small>
+MY ACHIEVEMENTS
+</small>
+
+<h2>
+เกียรติบัตร
+</h2>
+
+<div class="mini-line"></div>
+
+</div>
+
+
 <div class="certificates">
+
+
+<!-- เกียรติบัตร 1 -->
 
 <div class="certificate">
 
-<img src="https://i.postimg.cc/wMKh309Z/IMG-0856.jpg" alt="เกียรติบัตรใบที่ 1">
+<label for="cert1">
+
+<img
+src="https://i.postimg.cc/wMKh309Z/IMG-0856.jpg"
+alt="เกียรติบัตรใบที่ 1"
+>
+
+</label>
+
+<input type="checkbox" id="cert1" class="zoom">
+
+<label for="cert1" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/wMKh309Z/IMG-0856.jpg"
+alt="เกียรติบัตรใบที่ 1"
+>
+
+</label>
 
 <div class="cert-info">
 
 <small>01</small>
 
-<h2>
+<h3>
 เกียรติบัตรใบที่ 1
-</h2>
+</h3>
 
 </div>
 
 </div>
+
+
+<!-- เกียรติบัตร 2 -->
 
 <div class="certificate">
 
-<img src="https://i.postimg.cc/SQ86HFrL/IMG-0859.jpg" alt="เกียรติบัตรใบที่ 2">
+<label for="cert2">
+
+<img
+src="https://i.postimg.cc/SQ86HFrL/IMG-0859.jpg"
+alt="เกียรติบัตรใบที่ 2"
+>
+
+</label>
+
+<input type="checkbox" id="cert2" class="zoom">
+
+<label for="cert2" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/SQ86HFrL/IMG-0859.jpg"
+alt="เกียรติบัตรใบที่ 2"
+>
+
+</label>
 
 <div class="cert-info">
 
 <small>02</small>
 
-<h2>
+<h3>
 เกียรติบัตรใบที่ 2
-</h2>
+</h3>
 
 </div>
 
 </div>
+
+
+<!-- เกียรติบัตร 3 -->
 
 <div class="certificate">
 
-<img src="https://i.postimg.cc/wjxDttdh/IMG-0860.jpg" alt="เกียรติบัตรใบที่ 3">
+<label for="cert3">
+
+<img
+src="https://i.postimg.cc/wjxDttdh/IMG-0860.jpg"
+alt="เกียรติบัตรใบที่ 3"
+>
+
+</label>
+
+<input type="checkbox" id="cert3" class="zoom">
+
+<label for="cert3" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/wjxDttdh/IMG-0860.jpg"
+alt="เกียรติบัตรใบที่ 3"
+>
+
+</label>
 
 <div class="cert-info">
 
 <small>03</small>
 
-<h2>
+<h3>
 เกียรติบัตรใบที่ 3
-</h2>
+</h3>
 
 </div>
 
 </div>
+
+
+<!-- เกียรติบัตร 4 -->
 
 <div class="certificate">
 
-<img src="https://i.postimg.cc/5t6v3ZyY/IMG-0861.jpg" alt="เกียรติบัตรใบที่ 4">
+<label for="cert4">
+
+<img
+src="https://i.postimg.cc/5t6v3ZyY/IMG-0861.jpg"
+alt="เกียรติบัตรใบที่ 4"
+>
+
+</label>
+
+<input type="checkbox" id="cert4" class="zoom">
+
+<label for="cert4" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/5t6v3ZyY/IMG-0861.jpg"
+alt="เกียรติบัตรใบที่ 4"
+>
+
+</label>
 
 <div class="cert-info">
 
 <small>04</small>
 
-<h2>
+<h3>
 เกียรติบัตรใบที่ 4
-</h2>
+</h3>
 
 </div>
 
 </div>
+
+
+<!-- เกียรติบัตร 5 -->
 
 <div class="certificate">
 
-<img src="https://i.postimg.cc/h49mp8Dh/IMG-0858.jpg" alt="เกียรติบัตรใบที่ 5">
+<label for="cert5">
+
+<img
+src="https://i.postimg.cc/h49mp8Dh/IMG-0858.jpg"
+alt="เกียรติบัตรใบที่ 5"
+>
+
+</label>
+
+<input type="checkbox" id="cert5" class="zoom">
+
+<label for="cert5" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/h49mp8Dh/IMG-0858.jpg"
+alt="เกียรติบัตรใบที่ 5"
+>
+
+</label>
 
 <div class="cert-info">
 
 <small>05</small>
 
-<h2>
+<h3>
 เกียรติบัตรใบที่ 5
+</h3>
+
+</div>
+
+</div>
+
+
+<!-- เกียรติบัตร 6 -->
+
+<div class="certificate">
+
+<label for="cert6">
+
+<img
+src="https://i.postimg.cc/BQ6dsRhq/IMG-0907.jpg"
+alt="เกียรติบัตรใบที่ 6"
+>
+
+</label>
+
+<input type="checkbox" id="cert6" class="zoom">
+
+<label for="cert6" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/BQ6dsRhq/IMG-0907.jpg"
+alt="เกียรติบัตรใบที่ 6"
+>
+
+</label>
+
+<div class="cert-info">
+
+<small>06</small>
+
+<h3>
+เกียรติบัตรใบที่ 6
+</h3>
+
+</div>
+
+</div>
+
+
+<!-- เกียรติบัตร 7 -->
+
+<div class="certificate">
+
+<label for="cert7">
+
+<img
+src="https://i.postimg.cc/VNjhDwNq/IMG-0908.jpg"
+alt="เกียรติบัตรใบที่ 7"
+>
+
+</label>
+
+<input type="checkbox" id="cert7" class="zoom">
+
+<label for="cert7" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/VNjhDwNq/IMG-0908.jpg"
+alt="เกียรติบัตรใบที่ 7"
+>
+
+</label>
+
+<div class="cert-info">
+
+<small>07</small>
+
+<h3>
+เกียรติบัตรใบที่ 7
+</h3>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- ==================================================
+     SECTION 2 : ACTIVITIES
+================================================== -->
+
+<div class="section">
+
+<div class="section-title">
+
+<small>
+MY ACTIVITIES
+</small>
+
+<h2>
+รูปกิจกรรมต่าง ๆ
 </h2>
 
+<div class="mini-line"></div>
+
 </div>
+
+
+<div class="activities">
+
+
+<!-- กิจกรรม 1 -->
+
+<div class="activity">
+
+<label for="act1">
+
+<img
+src="https://i.postimg.cc/KY71F0fT/att-kzo-Rh-Iv7c-O7Otetbb-DJP6orcfj-Bw-Yb-Yr2CTh-OE2Nus.jpg"
+alt="กิจกรรม 1"
+>
+
+</label>
+
+<input type="checkbox" id="act1" class="zoom">
+
+<label for="act1" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/KY71F0fT/att-kzo-Rh-Iv7c-O7Otetbb-DJP6orcfj-Bw-Yb-Yr2CTh-OE2Nus.jpg"
+alt="กิจกรรม 1"
+>
+
+</label>
+
+<div class="activity-info">
+
+<small>ACTIVITY 01</small>
+
+<h3>กิจกรรมที่ 1</h3>
 
 </div>
 
 </div>
+
+
+<!-- กิจกรรม 2 -->
+
+<div class="activity">
+
+<label for="act2">
+
+<img
+src="https://i.postimg.cc/NFnMbSGQ/att-yy-Vcx-O8Rk-USkxkf-MGfg-VI9sij-ADxcq-XXz-Lcxbpg-TMYY.jpg"
+alt="กิจกรรม 2"
+>
+
+</label>
+
+<input type="checkbox" id="act2" class="zoom">
+
+<label for="act2" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/NFnMbSGQ/att-yy-Vcx-O8Rk-USkxkf-MGfg-VI9sij-ADxcq-XXz-Lcxbpg-TMYY.jpg"
+alt="กิจกรรม 2"
+>
+
+</label>
+
+<div class="activity-info">
+
+<small>ACTIVITY 02</small>
+
+<h3>กิจกรรมที่ 2</h3>
+
+</div>
+
+</div>
+
+
+<!-- กิจกรรม 3 -->
+
+<div class="activity">
+
+<label for="act3">
+
+<img
+src="https://i.postimg.cc/7Yph2FQY/att-Sd-Tb-Rb-J4K9YDSMHAn-Bi1l-MWUafxot-ZCH51Qh3U8WPfs.jpg"
+alt="กิจกรรม 3"
+>
+
+</label>
+
+<input type="checkbox" id="act3" class="zoom">
+
+<label for="act3" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/7Yph2FQY/att-Sd-Tb-Rb-J4K9YDSMHAn-Bi1l-MWUafxot-ZCH51Qh3U8WPfs.jpg"
+alt="กิจกรรม 3"
+>
+
+</label>
+
+<div class="activity-info">
+
+<small>ACTIVITY 03</small>
+
+<h3>กิจกรรมที่ 3</h3>
+
+</div>
+
+</div>
+
+
+<!-- กิจกรรม 4 -->
+
+<div class="activity">
+
+<label for="act4">
+
+<img
+src="https://i.postimg.cc/Bb393Ch6/IMG-0925.jpg"
+alt="กิจกรรม 4"
+>
+
+</label>
+
+<input type="checkbox" id="act4" class="zoom">
+
+<label for="act4" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/Bb393Ch6/IMG-0925.jpg"
+alt="กิจกรรม 4"
+>
+
+</label>
+
+<div class="activity-info">
+
+<small>ACTIVITY 04</small>
+
+<h3>กิจกรรมที่ 4</h3>
+
+</div>
+
+</div>
+
+
+<!-- กิจกรรม 5 -->
+
+<div class="activity">
+
+<label for="act5">
+
+<img
+src="https://i.postimg.cc/X7VSDQGh/IMG-0926.jpg"
+alt="กิจกรรม 5"
+>
+
+</label>
+
+<input type="checkbox" id="act5" class="zoom">
+
+<label for="act5" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/X7VSDQGh/IMG-0926.jpg"
+alt="กิจกรรม 5"
+>
+
+</label>
+
+<div class="activity-info">
+
+<small>ACTIVITY 05</small>
+
+<h3>กิจกรรมที่ 5</h3>
+
+</div>
+
+</div>
+
+
+<!-- กิจกรรม 6 -->
+
+<div class="activity">
+
+<label for="act6">
+
+<img
+src="https://i.postimg.cc/y8xq7xTb/IMG-0927.jpg"
+alt="กิจกรรม 6"
+>
+
+</label>
+
+<input type="checkbox" id="act6" class="zoom">
+
+<label for="act6" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/y8xq7xTb/IMG-0927.jpg"
+alt="กิจกรรม 6"
+>
+
+</label>
+
+<div class="activity-info">
+
+<small>ACTIVITY 06</small>
+
+<h3>กิจกรรมที่ 6</h3>
+
+</div>
+
+</div>
+
+
+<!-- กิจกรรม 7 -->
+
+<div class="activity">
+
+<label for="act7">
+
+<img
+src="https://i.postimg.cc/DZVRQg3d/IMG-0928.jpg"
+alt="กิจกรรม 7"
+>
+
+</label>
+
+<input type="checkbox" id="act7" class="zoom">
+
+<label for="act7" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/DZVRQg3d/IMG-0928.jpg"
+alt="กิจกรรม 7"
+>
+
+</label>
+
+<div class="activity-info">
+
+<small>ACTIVITY 07</small>
+
+<h3>กิจกรรมที่ 7</h3>
+
+</div>
+
+</div>
+
+
+<!-- กิจกรรม 8 -->
+
+<div class="activity">
+
+<label for="act8">
+
+<img
+src="https://i.postimg.cc/hvcw6tjj/IMG-0929.jpg"
+alt="กิจกรรม 8"
+>
+
+</label>
+
+<input type="checkbox" id="act8" class="zoom">
+
+<label for="act8" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/hvcw6tjj/IMG-0929.jpg"
+alt="กิจกรรม 8"
+>
+
+</label>
+
+<div class="activity-info">
+
+<small>ACTIVITY 08</small>
+
+<h3>กิจกรรมที่ 8</h3>
+
+</div>
+
+</div>
+
+
+<!-- กิจกรรม 9 -->
+
+<div class="activity">
+
+<label for="act9">
+
+<img
+src="https://i.postimg.cc/DyfHc0Rh/IMG-0930.jpg"
+alt="กิจกรรม 9"
+>
+
+</label>
+
+<input type="checkbox" id="act9" class="zoom">
+
+<label for="act9" class="zoom-overlay">
+
+<span class="close">×</span>
+
+<img
+src="https://i.postimg.cc/DyfHc0Rh/IMG-0930.jpg"
+alt="กิจกรรม 9"
+>
+
+</label>
+
+<div class="activity-info">
+
+<small>ACTIVITY 09</small>
+
+<h3>กิจกรรมที่ 9</h3>
+
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+<!-- =========================
+     BUTTONS
+========================= -->
 
 <div class="back">
 
@@ -329,13 +1144,22 @@ MY ACHIEVEMENTS
 ← กลับไป About Me
 </a>
 
-</div>
+<a href="index.html" class="btn">
+⌂ กลับหน้าแรก
+</a>
 
 </div>
+
+
+</div>
+
 
 <footer>
+
 © 2026 Portfolio | โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"
+
 </footer>
+
 
 </body>
 
