@@ -1,51 +1,41 @@
 <!DOCTYPE html>
 <html lang="th">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
 <title>ผลงานวาด | Portfolio</title>
 
 <style>
-
 *{
 margin:0;
 padding:0;
 box-sizing:border-box
 }
 
-html{
-scroll-behavior:smooth
-}
-
 body{
 font-family:Arial,"Noto Sans Thai",sans-serif;
 background:#f5f5f5;
-color:#222
+color:#222;
+line-height:1.7
 }
 
-/* =========================
-NAV
-========================= */
-
 nav{
-height:75px;
-padding:0 7%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#fff;
-border-bottom:1px solid #ddd;
 position:sticky;
 top:0;
-z-index:10
+z-index:1000;
+height:70px;
+background:#fff;
+border-bottom:1px solid #ddd;
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:0 6%
 }
 
 .logo{
+font-size:18px;
 font-weight:bold;
-letter-spacing:3px
+letter-spacing:1px
 }
 
 .links{
@@ -55,57 +45,54 @@ gap:30px
 
 .links a{
 text-decoration:none;
-color:#777;
-font-size:15px;
+color:#555;
+font-size:14px;
 transition:.3s
 }
 
 .links a:hover,
-.links .selected{
-color:#111;
+.links a.active{
+color:#000;
 font-weight:bold
 }
 
-/* =========================
-CONTENT
-========================= */
-
 .content{
-max-width:1150px;
+max-width:1200px;
 margin:auto;
-padding:70px 25px
+padding:75px 30px
 }
 
 .header{
 text-align:center;
-margin-bottom:40px
+margin-bottom:45px
 }
 
 .header small{
-letter-spacing:4px;
-color:#888
+font-size:13px;
+letter-spacing:3px;
+color:#999
 }
 
 .header h1{
-font-size:60px;
-margin:10px 0
-}
-
-.line{
-width:80px;
-height:3px;
-background:#222;
-margin:20px auto
+font-size:52px;
+font-weight:700;
+margin:5px 0 12px
 }
 
 .header p{
 color:#777;
-line-height:1.8
+font-size:15px;
+max-width:650px;
+margin:auto
 }
 
 /* =========================
-TAB
+TABS
 ========================= */
+
+.tab-radio{
+display:none
+}
 
 .tabs{
 display:flex;
@@ -126,22 +113,6 @@ color:#777;
 font-size:15px;
 transition:.3s
 }
-
-.tabs label:hover{
-color:#222
-}
-
-/* =========================
-HIDE RADIO
-========================= */
-
-.tab-radio{
-display:none
-}
-
-/* =========================
-TAB ACTIVE
-========================= */
 
 #normal:checked ~ .tabs label[for="normal"],
 #digital:checked ~ .tabs label[for="digital"],
@@ -186,13 +157,9 @@ transition:.3s
 }
 
 .art-card:hover{
-transform:translateY(-6px);
+transform:translateY(-5px);
 box-shadow:0 15px 35px #00000018
 }
-
-/* =========================
-IMAGE
-========================= */
 
 .image-button{
 display:flex;
@@ -215,29 +182,26 @@ transition:.3s
 }
 
 .image-button:hover img{
-transform:scale(1.02)
+transform:scale(1.03)
 }
 
-/* =========================
-ART INFO
-========================= */
-
 .art-info{
-padding:18px 20px
+padding:18px 20px 20px
 }
 
 .art-info small{
-color:#999;
-letter-spacing:3px
+font-size:11px;
+letter-spacing:2px;
+color:#999
 }
 
 .art-info h2{
 font-size:18px;
-margin-top:7px
+margin-top:3px
 }
 
 /* =========================
-IMAGE LIGHTBOX
+ZOOM
 ========================= */
 
 .zoom{
@@ -272,10 +236,6 @@ box-shadow:0 20px 70px #000;
 cursor:default
 }
 
-/* =========================
-CLOSE BUTTON
-========================= */
-
 .close{
 position:absolute;
 top:18px;
@@ -297,52 +257,42 @@ transition:.3s
 }
 
 .close:hover{
-background:#fff;
-color:#222;
-transform:rotate(90deg)
+background:#ffffff40
 }
 
 /* =========================
-BACK BUTTON
+BUTTON
 ========================= */
 
 .back{
-text-align:center;
-margin-top:55px;
 display:flex;
 justify-content:center;
 gap:15px;
+margin-top:60px;
 flex-wrap:wrap
 }
 
 .btn{
-display:inline-flex;
-align-items:center;
-gap:18px;
-padding:15px 28px;
-border-radius:50px;
+display:inline-block;
+padding:12px 25px;
 background:#222;
 color:#fff;
-font-size:16px;
 text-decoration:none;
+border-radius:30px;
+font-size:14px;
 transition:.3s
 }
 
 .btn:hover{
 background:#555;
-transform:translateY(-3px)
+transform:translateY(-2px)
 }
-
-/* =========================
-FOOTER
-========================= */
 
 footer{
 text-align:center;
-padding:35px;
-background:#222;
-color:#aaa;
-font-size:13px
+color:#999;
+font-size:12px;
+padding:45px 20px 25px
 }
 
 /* =========================
@@ -397,8 +347,6 @@ grid-template-columns:1fr;
 gap:20px
 }
 
-/* ให้เห็นรูปครบในมือถือ */
-
 .image-button{
 height:auto;
 min-height:250px
@@ -410,8 +358,6 @@ height:auto;
 max-height:500px;
 object-fit:contain
 }
-
-/* รูปตอนขยาย */
 
 .zoom-overlay{
 padding:15px
@@ -432,12 +378,26 @@ font-size:32px
 
 }
 
-</style>
+@media(max-width:450px){
 
+.links{
+gap:10px
+}
+
+.links a{
+font-size:10px
+}
+
+.tabs label{
+padding:10px 9px;
+font-size:11px
+}
+
+}
+</style>
 </head>
 
 <body>
-
 
 <!-- =========================
 NAVIGATION
@@ -446,7 +406,7 @@ NAVIGATION
 <nav>
 
 <div class="logo">
-PORTFOLIO
+MY PORTFOLIO
 </div>
 
 <div class="links">
@@ -459,7 +419,7 @@ Home
 About Me
 </a>
 
-<a href="art.html" class="selected">
+<a href="art.html" class="active">
 ผลงานวาด
 </a>
 
@@ -472,14 +432,13 @@ Portfolio
 </nav>
 
 
-<div class="content">
-
+<main class="content">
 
 <!-- =========================
 HEADER
 ========================= -->
 
-<div class="header">
+<header class="header">
 
 <small>
 MY ARTWORK
@@ -489,13 +448,12 @@ MY ARTWORK
 ผลงานวาด
 </h1>
 
-<div class="line"></div>
-
 <p>
-รวมผลงานวาดรูป ผลงานศิลปะ Digital Art และงานเขียนที่สร้างสรรค์ขึ้นในรูปแบบต่าง ๆ
+รวมผลงานวาดและงานสร้างสรรค์ที่ทำขึ้น
+ทั้งงานวาดทั่วไป Digital Art และงานเขียน
 </p>
 
-</div>
+</header>
 
 
 <!-- =========================
@@ -504,7 +462,7 @@ RADIO
 
 <input
 type="radio"
-name="art-tab"
+name="tab"
 id="normal"
 class="tab-radio"
 checked
@@ -512,21 +470,21 @@ checked
 
 <input
 type="radio"
-name="art-tab"
+name="tab"
 id="digital"
 class="tab-radio"
 >
 
 <input
 type="radio"
-name="art-tab"
+name="tab"
 id="writing"
 class="tab-radio"
 >
 
 
 <!-- =========================
-TAB BUTTON
+TABS
 ========================= -->
 
 <div class="tabs">
@@ -553,20 +511,18 @@ NORMAL ART
 <div class="gallery normal-gallery">
 
 
-<!-- =========================
-ART 01
-========================= -->
+<!-- NORMAL 01 -->
 
 <div class="art-card">
 
 <input
 type="checkbox"
-id="zoom01"
+id="zoom1"
 class="zoom"
 >
 
 <label
-for="zoom01"
+for="zoom1"
 class="image-button"
 >
 
@@ -578,7 +534,7 @@ alt="ผลงานวาด 01"
 </label>
 
 <label
-for="zoom01"
+for="zoom1"
 class="zoom-overlay"
 >
 
@@ -596,7 +552,7 @@ alt="ผลงานวาด 01 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-01
+ARTWORK 01
 </small>
 
 <h2>
@@ -608,20 +564,18 @@ alt="ผลงานวาด 01 ขนาดใหญ่"
 </div>
 
 
-<!-- =========================
-ART 02
-========================= -->
+<!-- NORMAL 02 -->
 
 <div class="art-card">
 
 <input
 type="checkbox"
-id="zoom02"
+id="zoom2"
 class="zoom"
 >
 
 <label
-for="zoom02"
+for="zoom2"
 class="image-button"
 >
 
@@ -633,7 +587,7 @@ alt="ผลงานวาด 02"
 </label>
 
 <label
-for="zoom02"
+for="zoom2"
 class="zoom-overlay"
 >
 
@@ -651,7 +605,7 @@ alt="ผลงานวาด 02 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-02
+ARTWORK 02
 </small>
 
 <h2>
@@ -663,20 +617,18 @@ alt="ผลงานวาด 02 ขนาดใหญ่"
 </div>
 
 
-<!-- =========================
-ART 03
-========================= -->
+<!-- NORMAL 03 -->
 
 <div class="art-card">
 
 <input
 type="checkbox"
-id="zoom03"
+id="zoom3"
 class="zoom"
 >
 
 <label
-for="zoom03"
+for="zoom3"
 class="image-button"
 >
 
@@ -688,7 +640,7 @@ alt="ผลงานวาด 03"
 </label>
 
 <label
-for="zoom03"
+for="zoom3"
 class="zoom-overlay"
 >
 
@@ -706,7 +658,7 @@ alt="ผลงานวาด 03 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-03
+ARTWORK 03
 </small>
 
 <h2>
@@ -718,20 +670,18 @@ alt="ผลงานวาด 03 ขนาดใหญ่"
 </div>
 
 
-<!-- =========================
-ART 04
-========================= -->
+<!-- NORMAL 04 -->
 
 <div class="art-card">
 
 <input
 type="checkbox"
-id="zoom04"
+id="zoom4"
 class="zoom"
 >
 
 <label
-for="zoom04"
+for="zoom4"
 class="image-button"
 >
 
@@ -743,7 +693,7 @@ alt="ผลงานวาด 04"
 </label>
 
 <label
-for="zoom04"
+for="zoom4"
 class="zoom-overlay"
 >
 
@@ -761,7 +711,7 @@ alt="ผลงานวาด 04 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-04
+ARTWORK 04
 </small>
 
 <h2>
@@ -773,20 +723,18 @@ alt="ผลงานวาด 04 ขนาดใหญ่"
 </div>
 
 
-<!-- =========================
-ART 05
-========================= -->
+<!-- NORMAL 05 -->
 
 <div class="art-card">
 
 <input
 type="checkbox"
-id="zoom05"
+id="zoom5"
 class="zoom"
 >
 
 <label
-for="zoom05"
+for="zoom5"
 class="image-button"
 >
 
@@ -798,7 +746,7 @@ alt="ผลงานวาด 05"
 </label>
 
 <label
-for="zoom05"
+for="zoom5"
 class="zoom-overlay"
 >
 
@@ -816,7 +764,7 @@ alt="ผลงานวาด 05 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-05
+ARTWORK 05
 </small>
 
 <h2>
@@ -828,20 +776,18 @@ alt="ผลงานวาด 05 ขนาดใหญ่"
 </div>
 
 
-<!-- =========================
-ART 06
-========================= -->
+<!-- NORMAL 06 -->
 
 <div class="art-card">
 
 <input
 type="checkbox"
-id="zoom06"
+id="zoom6"
 class="zoom"
 >
 
 <label
-for="zoom06"
+for="zoom6"
 class="image-button"
 >
 
@@ -853,7 +799,7 @@ alt="ผลงานวาด 06"
 </label>
 
 <label
-for="zoom06"
+for="zoom6"
 class="zoom-overlay"
 >
 
@@ -871,7 +817,7 @@ alt="ผลงานวาด 06 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-06
+ARTWORK 06
 </small>
 
 <h2>
@@ -883,20 +829,18 @@ alt="ผลงานวาด 06 ขนาดใหญ่"
 </div>
 
 
-<!-- =========================
-ART 07
-========================= -->
+<!-- NORMAL 07 -->
 
 <div class="art-card">
 
 <input
 type="checkbox"
-id="zoom07"
+id="zoom7"
 class="zoom"
 >
 
 <label
-for="zoom07"
+for="zoom7"
 class="image-button"
 >
 
@@ -908,7 +852,7 @@ alt="ผลงานวาด 07"
 </label>
 
 <label
-for="zoom07"
+for="zoom7"
 class="zoom-overlay"
 >
 
@@ -926,7 +870,7 @@ alt="ผลงานวาด 07 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-07
+ARTWORK 07
 </small>
 
 <h2>
@@ -938,20 +882,18 @@ alt="ผลงานวาด 07 ขนาดใหญ่"
 </div>
 
 
-<!-- =========================
-ART 08
-========================= -->
+<!-- NORMAL 08 -->
 
 <div class="art-card">
 
 <input
 type="checkbox"
-id="zoom08"
+id="zoom8"
 class="zoom"
 >
 
 <label
-for="zoom08"
+for="zoom8"
 class="image-button"
 >
 
@@ -963,7 +905,7 @@ alt="ผลงานวาด 08"
 </label>
 
 <label
-for="zoom08"
+for="zoom8"
 class="zoom-overlay"
 >
 
@@ -981,7 +923,7 @@ alt="ผลงานวาด 08 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-08
+ARTWORK 08
 </small>
 
 <h2>
@@ -991,7 +933,6 @@ alt="ผลงานวาด 08 ขนาดใหญ่"
 </div>
 
 </div>
-
 
 </div>
 
@@ -1003,20 +944,18 @@ DIGITAL ART
 <div class="gallery digital-gallery">
 
 
-<!-- =========================
-DIGITAL 01
-========================= -->
+<!-- DIGITAL 01 -->
 
 <div class="art-card">
 
 <input
 type="checkbox"
-id="zoom09"
+id="zoom9"
 class="zoom"
 >
 
 <label
-for="zoom09"
+for="zoom9"
 class="image-button"
 >
 
@@ -1028,7 +967,7 @@ alt="Digital Art 01"
 </label>
 
 <label
-for="zoom09"
+for="zoom9"
 class="zoom-overlay"
 >
 
@@ -1046,7 +985,7 @@ alt="Digital Art 01 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-DIGITAL 01
+DIGITAL ART 01
 </small>
 
 <h2>
@@ -1058,9 +997,7 @@ Digital Art
 </div>
 
 
-<!-- =========================
-DIGITAL 02
-========================= -->
+<!-- DIGITAL 02 -->
 
 <div class="art-card">
 
@@ -1101,7 +1038,7 @@ alt="Digital Art 02 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-DIGITAL 02
+DIGITAL ART 02
 </small>
 
 <h2>
@@ -1113,9 +1050,7 @@ Digital Art
 </div>
 
 
-<!-- =========================
-DIGITAL 03
-========================= -->
+<!-- DIGITAL 03 -->
 
 <div class="art-card">
 
@@ -1156,7 +1091,7 @@ alt="Digital Art 03 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-DIGITAL 03
+DIGITAL ART 03
 </small>
 
 <h2>
@@ -1168,9 +1103,7 @@ Digital Art
 </div>
 
 
-<!-- =========================
-DIGITAL 04
-========================= -->
+<!-- DIGITAL 04 -->
 
 <div class="art-card">
 
@@ -1211,7 +1144,7 @@ alt="Digital Art 04 ขนาดใหญ่"
 <div class="art-info">
 
 <small>
-DIGITAL 04
+DIGITAL ART 04
 </small>
 
 <h2>
@@ -1222,20 +1155,18 @@ Digital Art
 
 </div>
 
-
 </div>
 
 
 <!-- ==================================================
 WRITING
+เหลือ 2 รูปตามที่ขอ
 ================================================== -->
 
 <div class="gallery writing-gallery">
 
 
-<!-- =========================
-WRITING 01
-========================= -->
+<!-- WRITING 01 -->
 
 <div class="art-card">
 
@@ -1288,9 +1219,7 @@ WRITING 01
 </div>
 
 
-<!-- =========================
-WRITING 02
-========================= -->
+<!-- WRITING 02 -->
 
 <div class="art-card">
 
@@ -1342,67 +1271,11 @@ WRITING 02
 
 </div>
 
-
-<!-- =========================
-WRITING 03
-========================= -->
-
-<div class="art-card">
-
-<input
-type="checkbox"
-id="zoom15"
-class="zoom"
->
-
-<label
-for="zoom15"
-class="image-button"
->
-
-<img
-src="IMG_0957.jpg"
-alt="งานเขียน 03"
->
-
-</label>
-
-<label
-for="zoom15"
-class="zoom-overlay"
->
-
-<span class="close">
-×
-</span>
-
-<img
-src="IMG_0957.jpg"
-alt="งานเขียน 03 ขนาดใหญ่"
->
-
-</label>
-
-<div class="art-info">
-
-<small>
-WRITING 03
-</small>
-
-<h2>
-งานเขียน
-</h2>
-
-</div>
-
-</div>
-
-
 </div>
 
 
 <!-- =========================
-NEXT PAGE
+BUTTONS
 ========================= -->
 
 <div class="back">
@@ -1411,33 +1284,24 @@ NEXT PAGE
 href="about.html"
 class="btn"
 >
-
 ← กลับไป About Me
-
 </a>
 
 <a
 href="portfolio.html"
 class="btn"
 >
-
 ไปดูเกียรติบัตร →
-
 </a>
 
 </div>
 
-
-</div>
+</main>
 
 
 <footer>
-
 © 2026 Portfolio | โรงเรียนบ้านบึง"อุตสาหกรรมนุเคราะห์"
-
 </footer>
 
-
 </body>
-
 </html>
