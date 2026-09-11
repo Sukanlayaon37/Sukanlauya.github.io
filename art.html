@@ -144,7 +144,8 @@ TAB ACTIVE
 ========================= */
 
 #normal:checked ~ .tabs label[for="normal"],
-#digital:checked ~ .tabs label[for="digital"]{
+#digital:checked ~ .tabs label[for="digital"],
+#writing:checked ~ .tabs label[for="writing"]{
 background:#222;
 color:#fff
 }
@@ -164,6 +165,10 @@ display:grid
 }
 
 #digital:checked ~ .digital-gallery{
+display:grid
+}
+
+#writing:checked ~ .writing-gallery{
 display:grid
 }
 
@@ -378,12 +383,13 @@ font-size:14px
 
 .tabs{
 width:100%;
-justify-content:center
+justify-content:center;
+gap:4px
 }
 
 .tabs label{
-padding:12px 20px;
-font-size:13px
+padding:12px 15px;
+font-size:12px
 }
 
 .gallery{
@@ -486,7 +492,7 @@ MY ARTWORK
 <div class="line"></div>
 
 <p>
-รวมผลงานวาดรูปและผลงานศิลปะที่สร้างสรรค์ขึ้นในรูปแบบต่าง ๆ
+รวมผลงานวาดรูป ผลงานศิลปะ Digital Art และงานเขียนที่สร้างสรรค์ขึ้นในรูปแบบต่าง ๆ
 </p>
 
 </div>
@@ -511,6 +517,13 @@ id="digital"
 class="tab-radio"
 >
 
+<input
+type="radio"
+name="art-tab"
+id="writing"
+class="tab-radio"
+>
+
 
 <!-- =========================
 TAB BUTTON
@@ -524,6 +537,10 @@ TAB BUTTON
 
 <label for="digital">
 Digital Art
+</label>
+
+<label for="writing">
+งานเขียน
 </label>
 
 </div>
@@ -1199,6 +1216,181 @@ DIGITAL 04
 
 <h2>
 Digital Art
+</h2>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- ==================================================
+WRITING
+================================================== -->
+
+<div class="gallery writing-gallery">
+
+
+<!-- =========================
+WRITING 01
+========================= -->
+
+<div class="art-card">
+
+<input
+type="checkbox"
+id="zoom13"
+class="zoom"
+>
+
+<label
+for="zoom13"
+class="image-button"
+>
+
+<img
+src="IMG_0953.jpg"
+alt="งานเขียน 01"
+>
+
+</label>
+
+<label
+for="zoom13"
+class="zoom-overlay"
+>
+
+<span class="close">
+×
+</span>
+
+<img
+src="IMG_0953.jpg"
+alt="งานเขียน 01 ขนาดใหญ่"
+>
+
+</label>
+
+<div class="art-info">
+
+<small>
+WRITING 01
+</small>
+
+<h2>
+งานเขียน
+</h2>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+WRITING 02
+========================= -->
+
+<div class="art-card">
+
+<input
+type="checkbox"
+id="zoom14"
+class="zoom"
+>
+
+<label
+for="zoom14"
+class="image-button"
+>
+
+<img
+src="IMG_0954.jpg"
+alt="งานเขียน 02"
+>
+
+</label>
+
+<label
+for="zoom14"
+class="zoom-overlay"
+>
+
+<span class="close">
+×
+</span>
+
+<img
+src="IMG_0954.jpg"
+alt="งานเขียน 02 ขนาดใหญ่"
+>
+
+</label>
+
+<div class="art-info">
+
+<small>
+WRITING 02
+</small>
+
+<h2>
+งานเขียน
+</h2>
+
+</div>
+
+</div>
+
+
+<!-- =========================
+WRITING 03
+========================= -->
+
+<div class="art-card">
+
+<input
+type="checkbox"
+id="zoom15"
+class="zoom"
+>
+
+<label
+for="zoom15"
+class="image-button"
+>
+
+<img
+src="IMG_0957.jpg"
+alt="งานเขียน 03"
+>
+
+</label>
+
+<label
+for="zoom15"
+class="zoom-overlay"
+>
+
+<span class="close">
+×
+</span>
+
+<img
+src="IMG_0957.jpg"
+alt="งานเขียน 03 ขนาดใหญ่"
+>
+
+</label>
+
+<div class="art-info">
+
+<small>
+WRITING 03
+</small>
+
+<h2>
+งานเขียน
 </h2>
 
 </div>
